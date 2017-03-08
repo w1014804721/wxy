@@ -1,0 +1,230 @@
+body{
+	/*background-color: #eee;*/
+}
+.wrapper {
+	width: 100%;
+}
+.banner-pic {
+	width: 80%;
+	height: 400px;
+	margin: 0 auto;
+	margin-top: 30px;
+	position: relative;
+}
+.banner-pic img {
+	width: 100%;
+	height: 100%;
+}
+.index-new {
+	width: 85%;
+	height: 85%;
+	position: absolute;
+	top: 0px;
+	left: 60px;
+	margin-top: 0 !important;
+}
+#banners{
+	width: 100%;
+	height: 85%;
+}
+.ui-banner-slides {
+	width: 40% !important;
+	height: 100%;
+}
+.ui-banner-slides img{
+	height: 80%;
+}
+.ui-banner-slogans {
+	width: 60% !important;
+	/*height: 35%;*/
+	height: 100%;
+}
+.ui-banner-slogans li{
+	background-color: #fff;
+	height: 32% !important;
+    cursor: pointer;
+}
+.ui-bnnerp{
+	width: 80%;
+	height: 100% !important;
+}
+.ullinehover{
+	height: 100% !important;
+
+}
+/*活动展示*/
+.activityShow {
+	width: 85%;
+	height: 1300px;
+	margin: 0 auto;
+	margin-top: 20px;
+	background-color: #eee;
+	padding: 30px;
+}
+.show-header h2{
+	display: inline-block;
+	font-size: 1.5em;
+	color: #E94E38;
+	margin: 0 auto;
+	margin-left: 10px;
+}
+.show-header img{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	margin-bottom: -10px;
+}
+.show-header img:hover {
+	-webkit-transform:scale(1.2);
+	-moz-transform:scale(1.2);
+}
+.noisy {
+	width: 400px;
+	text-align: center;
+	margin: 0 auto;
+	margin-top:10px ;
+	margin-bottom: 10px;
+}
+.line{
+	width: 400px;
+	height: 3px;
+	margin: 0 auto;
+	background-color: #E94E38;
+}
+.activities {
+	width: 45%;
+	height: 370px;
+	/*border: 1px solid #838383;*/
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	box-shadow: 0 2px 1px 1px #e5e5e5;
+	background-color: #fff;
+	float: left;
+	margin-left:35px;
+	margin-bottom: 40px;
+}
+.up-act{
+	width: 100%;
+	height: 50%;
+}
+.up-act img{
+	width: 100%;
+	height: 100%;
+}
+.down-act {
+	width: 100%;
+	height: 50%;
+	padding: 10px;
+	/*background-color: #eee;*/
+}
+.down-act h5{
+	font-size: 1.1em;
+	width: 260px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+.complexDes{
+	width:85%;
+	text-indent: 2em;
+}
+.act-publisher {
+	width:50%;
+	display: inline-block;
+	color: #E94E38;
+	margin-left: 20px;
+}
+.act-publisher a{
+	color: #E94E38;
+}
+.more-btn{
+	display: inline-block;
+	width :30%;
+	height: 40px;
+	background-color: #E94E38;
+	color: #fff;
+	font-size: 1.1em;
+	text-align: center;
+	line-height: 2.3em;
+	position: relative;
+	left: 0;
+	margin-top: 15px;
+	cursor: pointer;
+}
+.act-modal-content {
+	width:730px;
+	/*height: 500px;*/
+	position: relative;
+	border-radius: 15px;
+}
+.act-header {
+	width: 95%;
+	height: 50px;
+	margin: 0 auto;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #eee ;
+}
+.act-close {
+	position: absolute;
+	top: 10px;
+	right: 20px;
+}
+.act-body h4{
+	font-size: 1.2em;
+	width: 300px;
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+.act {
+	width: 80%;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+.actMess {
+	float: left;
+	margin-left: 30px;
+}
+.act-body img{
+	width: 80%;
+	height: 300px;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+.wish-text{
+	text-indent: 2em;
+}
+.person-num{
+	display: inline-block;
+	color: #E94E38;
+	margin-left: 80px;
+}
+#baomingrenshu{
+	position: relative;
+	left:120px;
+}
+.baoming-btn {
+	display: inline-block;
+	width: 150px;
+	height: 40px;
+	background-color: #E94E38;
+	color: #fff;
+	font-size: 1.1em;
+	text-align: center;
+	line-height: 2.3em;
+	position: relative;
+	left: 130px;
+	margin-top: 10px;
+	cursor: pointer;
+}
+#page-ctrl {
+	margin:  0 auto;
+	margin-top: 30px;
+}
+.pagination{
+	display: block !important;
+	width: 360px;
+	margin: 0 auto !important;
+}
+

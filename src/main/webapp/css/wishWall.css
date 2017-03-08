@@ -1,0 +1,174 @@
+/*心愿*/
+.wishes {
+	width: 30%;
+	height: 400px;
+	border:1px solid #ddd;
+	float: left;
+	margin-left: 3%;
+	margin-bottom: 20px;
+	padding-top: 15px;
+	box-shadow:1px 1px 2px #eee;
+	background-color: #fff;
+	/*background-color: #eee;*/
+    
+}
+/*心愿上半部分*/
+.wish-up{
+	width: 90%;
+	height: 65%;
+	background-color: pink;
+	margin: 0 auto;
+	position: relative;
+}
+.showwish {
+	width: 100%;
+	height: 100%;	
+}
+.image-wrap {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;	
+}
+.image-wrap img{
+	width: 100%;
+	height: 100%;
+}
+/*心愿状态*/
+/*.wish-status{
+	width: 30%;
+	height: 12%;
+	border-radius: 100px;
+	z-index: 100;
+	background-color: #eb5c47;
+	position: absolute;
+	top: 6%;
+	left: 0;
+	text-align: center;
+	line-height: 2em;
+	color: #FFF;
+}*/
+
+.showwish:hover {
+	-webkit-transform:scale(1.2);
+	-moz-transform:scale(1.2);
+}
+/*心愿下半部分*/
+.wish-down{
+	width: 90%;
+	height: 32%;
+	/*background-color: #eee;*/
+	margin: 0 auto;
+	position: relative;
+}
+/*展示发布者信息*/
+.publisher-show {
+	width: 100%;
+	height: 35%;
+	margin: 0 auto;
+	background-color: #404642;
+	position: relative;
+	color: #eee;
+}
+.publisher {
+	float: left;
+	margin-right: 10px;
+	margin-top: 11px;
+}
+.publisher-img {
+	width: 60px;
+	height: 60px;
+	z-index: 100;
+	margin-top: -15px;
+}
+.publisher-img img{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	border: 2px solid #E94E38;
+	z-index: 100;
+	/*position: inherit;*/
+}
+.pub-sex {
+	margin-right:8px;
+}
+/*间隔线*/
+.line {
+	width: 1px;
+	height: 70%;
+	margin-top: 7px;
+	background-color: #eee;
+}
+.wish-topic {
+	padding: 15px;
+}
+/*readmore*/
+.read-btn {
+	width: 50%;
+	height: 32px;
+	margin: 0 auto;
+	background-color:#eb5c47;
+	/*border-radius: 70px ;*/
+	color: #EEEEEE;
+	text-align: center;
+	line-height: 2em;
+	cursor: pointer;
+}
+
+.wish-modal-content {
+	width:730px;
+	/*height: 500px;*/
+	position: relative;
+	border-radius: 15px;
+}
+.wish-header {
+	width: 95%;
+	height: 50px;
+	margin: 0 auto;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #eee ;
+}
+.wish-close {
+	position: absolute;
+	top: 10px;
+	right: 20px;
+}
+.wish-part {
+	float: left;
+	height: 60%;
+}
+.wish-body {
+	/*height: 100%;*/
+	border-radius: 15px;
+}
+.wishMess {
+	width: 100%;
+	height: 20px;
+	margin-bottom: 15px ;
+	font-size: 1.1em;
+}
+#deadline {
+	color: #E94E38;
+}
+.wishdown h4 {
+	width: 80%;
+	margin:0 auto;
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+.wish-text {
+	text-indent: 2em;
+}
+.left-part {
+	width: 40%;
+}
+.right-part {
+	width: 60%;
+}
+.right-part img{
+	width: 90%;
+	height: 250px;
+}
+#baomingrenshu {
+	width: 60px;
+}
+

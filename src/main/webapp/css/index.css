@@ -1,0 +1,63 @@
+div#loginContainer 
+{
+	width: auto;
+	margin-right: 38%;
+}
+div.sb-search
+{
+	right: 269px;
+}
+div.top_grid
+{
+	margin-bottom: 20px;
+}
+a.btna 
+{
+	text-decoration: none!important;
+    font-size: 13px;
+    background-color: #1db05e;
+    color: #fff!important;
+    padding: 5px 10px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+a.btna:hover
+{
+	background: #e94e38;
+    text-decoration: none;
+    color: #fff;
+}
+.nick 
+{
+	padding-top: 5px;
+	display: inline-block;
+	float: left;
+	margin-left: 25%
+}
+.zhongchou:hover 
+{
+	background: #e94e38;
+    text-decoration: none;
+    color: #fff;
+}
+div.space 
+{
+	width:100%;
+	height: 185px;
+	display: block;
+}
+a.moretalk:hover
+{
+	background: #e94e38;
+    text-decoration: none;
+    color: #fff;
+}
+a.moretalk:focus
+{
+	background: #e94e38;
+    text-decoration: none;
+    color: #fff;
+}
+

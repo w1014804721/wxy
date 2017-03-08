@@ -1,0 +1,100 @@
+body{
+background-color: rgb(243, 241, 242) !important;
+font-family: "微软雅黑";
+}
+a {
+	text-decoration: none;
+	color: #fff;
+}
+.collection-btn {
+	width: 120px;
+	height: 30px;
+	border: 1px solid rgb(233, 78, 56);
+	background-color: rgb(233, 78, 56);
+	border-radius: 10px;
+	cursor: pointer;
+	margin: 0 auto;
+	margin-top: 15px;
+}
+.collection-btn img {
+	width: 18px;
+	height: 18px;
+	border: 0;
+	margin-left:2px ;
+}
+.collection-btn p{
+	display: inline;
+	line-height: 30px;
+	color: #fff;
+	font-size: 13px;
+}
+.one-third p{
+	margin-top: 10px !important;
+	font-size: 15px;
+}
+.one-third{
+	margin-top: 40px;
+}
+.top_line {
+	background-color: #4acaa8;
+}
+.footer-line {
+	background-color: #4acaa8;
+}
+.notopmargin span{
+	display: inline-block;
+	margin-left: 10px;
+}
+.bordered-img {
+	width: 290px;
+	height: 200px;
+}
+.isafooter{	
+	width: 100% !important;
+	height: 200px;
+	/*height: 30px !important;*/
+	background-color: #4acaa8 !important;
+}
+.reveal-modal{
+    width: 600px;
+    height: 500px;
+	
+}
+.show{
+	display: block;
+	width:400px;
+	height: 300px;
+	margin: 0 auto;
+	border:5px solid #fff;
+	border-radius: 5px;
+}
+.reveal-modal p{
+	margin-left: 30px;
+	font-size: 14px;
+}
+.reveal-modal article {
+	font-size: 14px;
+}
+.modal-btn {
+	width: 90px;
+	height: 30px;
+	border: 1px solid rgb(233, 78, 56);
+	background-color: rgb(233, 78, 56);
+	border-radius: 10px;
+	cursor: pointer;
+	margin: 0 auto;
+	margin-top: 15px;
+}
+.modal-btn img {
+	width: 18px;
+	height: 18px;
+	border: 0;
+	margin-left:2px ;
+}
+.modal-btn p{
+	display: inline;
+	line-height: 30px;
+	color: #fff;
+	font-size: 13px;
+	margin-left: 0px;
+}

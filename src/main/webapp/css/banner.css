@@ -1,0 +1,226 @@
+*{
+	font-family: "微软雅黑";
+}
+.header {
+	width: 100%;
+	height: 70px;
+	z-index: 100;
+	border-bottom: 1px solid #DDDDDD;
+	position: relative;
+	background-color: #fff;
+	/*box-shadow: 0 1px 1px rgba(0,0,0,.8);*/
+}
+
+/*左半部分*/
+.header-left {
+	width: 60%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.logo,.menu{
+	float: left;
+}
+.logo {
+	margin-top: 8px;
+	margin-left: 100px;
+}
+.menu {
+	width: 70%;
+}
+.nav>li{
+	width: 18%;
+	height: 70px;
+	text-align: center;
+	float: left;
+	line-height: 3.2;	
+}
+.nav li>a {
+	color: #96a6a7;
+}
+.nav li>a:hover{
+	color: #e94e38;
+}
+/*右半部分*/
+.header-right {
+	width: 40%;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+/*搜索框*/
+.search-box {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.search-submit,.login,.register,.search-input {
+	margin-top:5px ;
+	width: 65px;
+	height: 65px;
+	border: none;
+	outline: none;
+}
+.search-submit,.login,.register {
+	cursor: pointer;	
+}
+.search-input {
+	width: 200px;
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: #e94e38;
+}
+/*搜索按钮*/
+.search-submit {
+	position: absolute;
+	top: 0;
+	left: 200px;
+	color: #fff;
+	background: #e2dee0 url('../img/h_search.png') no-repeat 21px 20px;
+}
+/*登录*/
+.login {
+	position: absolute;
+	top: 0;
+	left: 265px;
+	width: 95px;
+	padding: 23px 20px;
+	line-height: 1.5;
+	color: #FFF;
+    background-color: #e94e38;
+}
+.welcome {
+	width: 180px;
+}
+.register {
+	position: absolute;
+	top: 0;
+	left: 360px;
+	width: 95px;
+	height: 65px;
+	padding: 23px 20px;
+	line-height: 1.5;
+	color: #e94e38;
+    background-color: #fff;
+    border: 1px solid #e94e38;
+}
+.header-right img {
+	width: 20px;
+	height: 20px;
+}
+/*登录模态框*/
+.modal-content {
+	border-radius: 0;
+	width: 400px;
+	margin: 0 auto;
+}
+.modal-header{
+	width: 400px;
+	height: 50px;
+	border: none;
+	margin-bottom: 25px;
+}
+.btn-panel {
+	position: relative;
+	height: 50px;
+	width: 90%;
+	margin: 0 auto;
+	border-bottom: 1px solid #e94e38;
+}
+.header-btn {
+	display:inline-block;
+	text-align: center;
+	font-size: 1.2em;
+	line-height: 2.8;
+}
+.login-btn {
+	width: 70px;
+    height: 100%;
+	color: #e94e38;
+	border-bottom:1px solid  #e94e38;
+	cursor: pointer;
+}
+.close-btn {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.input-container {
+	margin-left: 15px;
+	margin-bottom: 20px;
+}
+.panel-container label {
+	font-weight:normal;
+	color: #787d82;
+}
+.modal-input {
+	margin-left: 15px;
+	height: 40px;
+	width: 270px;
+	outline: none;
+	border: 1px solid #d0d6d9;
+	padding-left: 7px;
+}
+#login-check {
+	margin-left: 20px;
+	cursor: pointer;
+}
+#personlog-content>a {
+	float: right;
+	margin-right: 30px;
+	cursor: pointer;
+	color: #e94e38;
+}
+#teamlog-content>a {
+	float: right;
+	margin-right: 30px;
+	cursor: pointer;
+	color: #e94e38;
+}
+.login-container {
+	width: 87%;
+	height: 50px;
+	margin: 0 auto;
+	margin-top: 20px;
+	background-color: #e94e38;
+	color: #FFF;
+	text-align: center;
+	font-size: 1.2em;
+    line-height: 2.7;
+    cursor: pointer;
+}
+#register-content {
+	
+}
+
+.team-btn,.person-btn {
+	width: 70px;
+    height: 100%;
+	color: #787d82;
+	/*border-bottom:1px solid  #e94e38;*/
+	cursor: pointer;
+}
+.person-btn {
+	color: #e94e38;
+}
+#team-tel,#team-password {
+	width: 240px;
+}
+.input-container img {
+	width: 20px;
+	height: 20px;
+}
+.check-sex {
+	display: inline-block;
+	margin-left: 20px !important;
+}
+#datepicker {
+	width: 100px;
+    height: 35px;
+}
+
+#team-content {
+	display: none;
+}

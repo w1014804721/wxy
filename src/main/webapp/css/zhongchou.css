@@ -1,0 +1,54 @@
+
+.modal-abtn a{
+	text-decoration:none;
+	color: #fff;
+	cursor: pointer;
+}
+a:hover{
+	color: #fff !important;
+}
+.modal-wrapper {
+	width: 90%;
+	height: 100%;
+	background-color: #fff;
+	margin: 0 auto;
+}
+.modal-abtn{
+	width: 80px;
+	height: 30px;
+	background-color: #4acaa8;
+	border: 1px solid #4ACAA8;
+	border-radius: 3px;
+	text-align: center;
+}
+.modal-wrapper p{
+	margin-top: 5px;	
+	margin-left: 15px;
+}
+.show{
+	margin-top: 10px;
+	display:block;
+	width: 300px;
+	height: 250px;
+	margin: 0 auto;
+	border: 5px solid #ddd;
+	border-radius: 3px;
+}
+.zhongchou-modal-btn {
+	color: #fff;
+	display: block;
+	width: 100px;
+	height: 30px;
+	background-color: #4ACAA8;
+	margin: 0 auto;
+	border: 1px solid #4ACAA8;
+	border-radius: 3px;
+	text-align: center;
+	cursor: pointer;
+}
+.zhifubao {
+	display: block;
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+}

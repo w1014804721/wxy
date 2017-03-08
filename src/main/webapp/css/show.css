@@ -1,0 +1,95 @@
+body{
+	min-width: 1200px;
+
+	/*overflow: hidden;*/
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/*content*/
+.content{
+	zoom: 1;
+	overflow: hidden;
+
+}
+
+/*首面修改-企业动态*/
+
+/* ui-banner */
+.ui-banner{display:block;position:relative;width:1154px;}
+.ui-banner.ui-banner-invalid{display:none;}
+.ui-banner,.ui-banner .ui-banner-slides,.ui-banner .ui-banner-slogans,.ui-banner .ui-banner-arrow{height:298px;}
+.ui-banner .ui-banner-slides,.ui-banner .ui-banner-slogans,.ui-banner .ui-banner-arrow{position:absolute;top:0;}
+.ui-banner ul{list-style-type:none;margin:0;padding:0;overflow:hidden;}
+.ui-banner .ui-banner-slides{width:445px;height:298px;left:1px;}
+.ui-banner .ui-banner-slides li{display:none;position:absolute;top: 5px;+top:10px;}
+.ui-banner .ui-banner-slides li img{width:445px;height:288px;border:none;}
+.ui-banner .ui-banner-slides li.ui-banner-slides-current,.ui-banner .ui-banner-slides li.ui-banner-slides-prev,.ui-banner .ui-banner-slides li.ui-banner-slides-next{display:block;}
+.ui-banner .ui-banner-slides li.ui-banner-slides-current{left:0;}
+.ui-banner .ui-banner-slides li.ui-banner-slides-prev{left:-654px;}
+.ui-banner .ui-banner-slides li.ui-banner-slides-next{left:654px;}
+.ui-banner .ui-banner-slogans{height:298px;overflow:hidden;width:698px;right:0;}
+.ui-bnnerimg{
+	width: 103px;
+	height: 83px;
+}
+.ui-bnnerp{
+	width: 550px;
+	height:97%;
+	padding-left: 20px;
+}
+.ui-bnnerp h3{
+	font-size: 14px;
+	color: #666;
+}
+.ui-bnnerp p{
+	color: #666;
+}
+.ui-line{
+	zoom: 1;
+	overflow: hidden;
+}
+.ui-line-hover{
+	background:url("../img/stuj.png") no-repeat left center;
+}
+
+.ullinehover{
+	border-bottom: 1px solid #ececec;
+	height: 86px;
+	margin: 0 0 3px 25px;
+	+margin: 0 0 1px 25px;
+	padding: 6px 0;
+}
+
+.ui-bnnerp-hover{
+	background-color:#a82513;	
+	color:#fff;
+}
+/*.ullinehover:hover .ui-bnnerp h3,.ullinehover:hover .ui-bnnerp p{
+	color: #fff;
+}*/
+.uibannerslog ul li{
+	border: 1px solid red;
+}
+.ui-bnnerp-hover h3,.ui-bnnerp-hover p{
+	color:#fff;
+}
+.ui-banner .ui-banner-arrow{display:block;width:23px;outline:none;}
+.ui-banner .ui-banner-arrow.ui-banner-arrow-prev{
+	background: transparent url("../img/jleft.jpg") no-repeat scroll 0 0;
+	height: 23px;
+	right: -43px;
+	top: 17px;
+	width: 23px;
+}
+.ui-banner .ui-banner-arrow.ui-banner-arrow-next{
+	background: transparent url("../img/jright.jpg") no-repeat;
+	height: 23px;
+	right: -43px;
+	top: 49px;
+	width: 23px;
+}
+.ui-banner .ui-banner-arrow.ui-banner-arrow-next img{left:-15px;}
+.ui-banner .ui-banner-overlay{bottom:0;height:10px;position:absolute;right:0;width:173px;}

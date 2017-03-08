@@ -1,0 +1,43 @@
+body {
+	background-color: #f1f2f3 !important;
+}
+.wrapper {
+	width: 100%;
+	position: relative;
+}
+.banner-pic {
+	width: 80%;
+	height: 550px;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+.banner-pic img {
+	width: 100%;
+	height: 100%;
+}
+.wishWall {
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 40px;
+	min-height: 500px;
+}
+.lingqu-btn {
+	display: block;
+	width: 150px;
+	height: 30px;
+	text-align: center;
+	line-height: 2em;
+	background-color: #E94E38;
+	color: #FFF;
+	border-radius: 7px;
+	cursor: pointer;
+}
+#page-ctrl {
+	margin:  0 auto;
+	margin-top: 30px;
+}
+.pagination{
+	display: block !important;
+	width: 360px;
+	margin: 0 auto !important;
+}

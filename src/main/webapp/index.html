@@ -1,0 +1,492 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Home</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="keywords" content="weixinyuan,微心愿"> 
+	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />	
+	<!-- Custom Theme files -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+	<script src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<!--<script type="text/javascript" src="js/interface/index.js"></script>-->
+	<script src="js/jquery.datetimepicker.full.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/ >
+	<script src="js/jquery.easydropdown.js"></script>
+ 	<script type="text/javascript" src="js/jquery.the-modal.js"></script>
+	
+	
+	<link href="css/index-style.css" rel='stylesheet' type='text/css' />
+	<link href="css/index.css" rel='stylesheet' type='text/css' />
+	 
+	<!--interface-->
+	<!--<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>-->
+	<script type="text/javascript" src="js/interface/index.js"></script>
+	<!--<script type="text/javascript" src="js/init_index.js"></script>-->
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!--webfont-->
+	<!--<script type="text/javascript" src="js/login.js"></script>-->
+ 
+  	<!--interface-->
+  	<!--<script type="text/javascript" src="js/interface/init_index.js"></script>-->
+	<!--Animation-->
+	<script src="js/wow.min.js"></script>
+	<link href="css/animate.css" rel='stylesheet' type='text/css' />	
+	<link href="css/banner.css" rel="stylesheet" type="text/css" />
+	<script>
+		new WOW().init();
+	</script>
+</head>
+<body style="font-family:'微软雅黑';">
+	<div class="header">
+		   <div class="header-left">
+				<div class="logo">
+					<a href="index.html"><img src="img/logo.png" alt=""/></a>
+				</div>
+				<div class="menu">
+					<!--<a class="toggleMenu" href="#"><img src="img/nav.png" alt="" /></a>-->
+				    <ul class="nav" id="nav">
+				    	<li class="active"><a href="index.html" style="color: #e94e38;">主页</a></li>
+				    	<li><a href="wishWall.html">微心愿平台</a></li>
+				    	<li><a href="activity.html">招募平台</a></li>
+				    	<li><a href="userPerson.html">我的空间</a></li>
+				    	<li><a href="comment.html">志愿者风采</a></li>
+						<div class="clearfix"></div>
+					</ul>
+			   </div>							
+			   <div class="clearfix"></div>
+		   </div>
+	      <div class="header-right" >
+	 		    <!--搜索框-->
+		        <div class="search-box">
+					<div id="sb-search" class="search">
+						<input class="search-input"  placeholder="请输入搜索内容..." type="search" name="search" id="search" />
+						<input class="search-submit" type="submit" id="search-btn" value="" onclick="toggleSearch()"/>
+					</div>
+				</div>
+				<!--登录按钮-->
+				<div class="login" data-toggle="modal" data-target="#myModal1" id="login-div" style="display: block;">
+					<img src="img/login.png" /> 
+					<span>登录</span>
+				</div>
+				<div class="register" data-toggle="modal" data-target="#myModal2" id="reg-div" style="display: block;">
+					<img src="img/注册.png" /> 
+					<span>注册</span>
+				</div>
+				<div class="login welcome" style="display: none;">
+					<p>欢迎您：<span id="user-mes"></span></p>
+				</div>
+			</div>
+		</div>		
+		<!--点击登录后弹出的框-->
+		<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		      	<div class="btn-panel">
+        			<div class="person-btn personlog-btn header-btn" onclick="personPanelLog()">个人</div>
+        			<div class="team-btn teamlog-btn header-btn" onclick="teamPanelLog()">团队</div>	
+		       		<button type="button" class="close close-btn header-btn" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        </div>
+		      </div>
+		      <div class="modal-body">
+		         <div class="user-panel">
+		        	<div class="panel-container">
+		        		<!--个人登录面板-->
+		        		<div id="personlog-content">
+		        			<div class="input-container">
+		        			<label for="tel">账号</label><input class="modal-input" type="text" id="tel" placeholder="请输入您的登录手机号" />
+		        			</div>
+		        			<div class="input-container">
+		        			<label for="password">密码</label><input class="modal-input" type="password" id="password" placeholder="请输入密码" />
+		        			</div>		        			
+		        			<input type="checkbox" id="login-check" />下次自动登录
+		        			<a>忘记密码</a>
+		        			<div class="login-container input-container" id="person-login" onClick='personLog()'>
+		        				登录
+		        			</div>
+		        		</div><!--个人登录面板-->
+		        		<!--团队登录面板-->
+		        		<div id="teamlog-content" style="display: none;">
+		        			<div class="input-container">
+		        			<label for="tel">团队账号</label><input class="modal-input" type="text" id="team-tel" placeholder="请输入您的登录手机号" />
+		        			</div>
+		        			<div class="input-container">
+		        			<label for="password">团队密码</label><input class="modal-input" type="password" id="team-password" placeholder="请输入密码" />
+		        			</div>		        			
+		        			<input type="checkbox" id="login-check" />下次自动登录
+		        			<a>忘记密码</a>
+		        			<div class="login-container input-container" id="team-login" onClick='teamLog()'>
+		        				登录
+		        			</div>
+		        		</div><!--团队登录面板-->
+		        	</div>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!--点击注册后弹出的模态框-->
+		<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		      	<div class="btn-panel">
+        			<div class="person-btn  personreg-btn header-btn" onclick="personPanel()">个人</div>
+        			<div class="team-btn teamreg-btn header-btn" onclick="teamPanel()">团队</div>	        
+		       		<button type="button" class="close close-btn header-btn" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        </div>
+		      </div>
+		      <div class="modal-body">
+		         <div class="user-panel">
+		        	<div class="panel-container">
+		        		<!--个人面板-->
+		        		<div id="person-content">
+		        			<div class="input-container">
+		        				<label for="reg-tel">账号</label><input class="modal-input" type="text" id="reg-tel" placeholder="请使用手机号作为账号" />
+		        			</div>
+		        			<div class="input-container">
+		        				<label for="reg-email">邮箱</label><input class="modal-input" type="text" id="reg-email" placeholder="请使用您的常用邮箱" />
+		        			</div>	
+		        			<div class="input-container">
+		        				<label for="reg-name">昵称</label><input class="modal-input" type="text" id="reg-name" placeholder="请输入您的用户名" />
+		        			</div>	
+		        			<div class="input-container">
+		        				<label for="sex">性别</label>
+		        				<input type="radio" checked="checked" value="男" name="Sex" class="check-sex" /><img src="img/男.png" />
+		        				<input type="radio" class="check-sex" value="女" name="Sex" /><img src="img/女1.png" />
+		        			</div>	
+		        			<div class="input-container">
+		        				<label for="datepicker">生日</label><input type="text" class="modal-input" id="datepicker" />
+		        			</div>	
+		        			<div class="input-container">
+		        				<label for="reg-password">密码</label><input class="modal-input" type="password" id="reg-password" placeholder="请输入密码" />
+		        			</div>	
+		        			<div class="input-container">
+		        				<label for="passwordNext">确认</label><input class="modal-input" type="password" id="passwordNext" placeholder="请再次输入密码" />
+		        			</div>
+		        			<div class="login-container input-container" id="person-reg" onClick="personReg()">
+		        				注册
+		        			</div>
+		        		</div><!--个人面板-->
+		        		<!--团队面板-->
+		        		<div id="team-content" >
+                            <div class="input-container">
+		        				<label for="regt-tel">账号</label><input class="modal-input" type="text" id="regt-tel" placeholder="请使用手机号作为账号" />
+		        			</div>
+		        			<div class="input-container">
+		        				<label for="regt-name">队名</label><input class="modal-input" type="text" id="regt-name" placeholder="所属的团队名称"  />
+		        			</div>
+		        			<div class="input-container">
+		        				<label for="regt-area">地址</label><input class="modal-input" type="text" id="regt-area" placeholder="团队所在地"  />
+		        			</div>
+		        			<div class="input-container">
+		        				<label for="regt-email">邮箱</label><input class="modal-input" type="text" id="regt-email" placeholder="请输入您的常用邮箱"  />
+		        			</div>
+		        			<div class="input-container">
+		        				<label for="regt-pass">密码</label><input class="modal-input" type="password" id="regt-pass" placeholder="请设置密码" />
+		        			</div>
+		        			<div class="input-container">
+		        				<label for="regt-passN">确认</label><input class="modal-input" type="password" id="regt-passN" placeholder="请再次输入密码" />
+		        			</div>
+		        			<div class="login-container input-container" id="team-reg" onClick="teamReg()">
+		        				注册
+		        			</div>
+		        		</div><!--团队面板-->
+		        	</div>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>  
+	<!--  banner   -->
+    <div class="banner wow fadeInUp" data-wow-delay="0.4s">
+   	  <div class="container_wrap">
+   		<h1>为您寻找志愿服务，为您发布微心愿</h1>
+   	       <!--<div class="dropdown-buttons">   
+            		  <div class="dropdown-button">           			
+            			<select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}'>
+            			<option value="0">志愿服务</option>	
+						<option value="1">鲁能足球场</option>
+						<option value="2">IT社区服务</option>
+						<option value="3">智能计算志愿者</option>
+						<option value="4">互联网+进社区</option>
+						<option value="5">计算机学院联盟</option>
+						<option value="6">并行日</option>
+						<option value="7">Russia</option>
+						<option value="8">Mirum</option>
+					  </select>
+					</div>
+				     <div class="dropdown-button">
+					  <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}'>
+            			<option value="0">微心愿</option>	
+						<option value="1">生活</option>
+						<option value="2">出行</option>
+						<option value="3">外卖 </option>
+						<option value="4">书籍</option>
+						<option value="5">寻找他(她) </option>
+						<option value="5">求学霸</option>
+						<option value="5">美食</option>
+					  </select>
+					 </div>
+				   </div>  -->
+		    <!--<form>
+				<input type="text" value="输入关键字,活动名称,日期, ..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '输入关键字,活动名称,日期, ...';}">-->
+			    <div class="contact_btn">
+	               <label class="btn1 btn-2 btn-2g"><a id="submit" data-toggle="modal" data-target="#myModal2" style="color: #fff;text-decoration: none;">加入我们</a></label>
+	            </div>
+			<!--</form> -->       		
+   		    <div class="clearfix"></div>
+         </div>
+   </div>
+
+   <!--  微心愿平台   -->
+   <div class="content_top wow bounceInRight" data-wow-delay="0.4s">
+   	  <div class="container">
+   		<div class="col-md-4 bottom_nav">
+   		   <div class="content_menu">
+				<ul>
+					<li class="active">新心愿展示</li> 
+					<li><a href="wishWall">查看更多</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-md-4 content_dropdown1">
+		</div>
+		<div class="col-md-4 filter_grid">
+			<ul class="filter">
+				<li class="fil">最新微心愿</li>
+				<li><a> <i class="icon1"> </i> </a></li>
+				<li><a> <i class="icon2"> </i> </a></li>
+				<li><a> <i class="icon3"> </i> </a></li>
+				<li><a> <i class="icon4"> </i> </a></li>
+				<li><a> <i class="icon5"> </i> </a></li>
+			</ul>
+		</div>
+   	</div>
+   </div>
+
+   <div class="content_middle wow bounceInLeft" data-wow-delay="0.4s">
+   	  <div class="container">
+
+   	    <div class="content_middle_box" style="margin-top: 10px;">
+          <div class="top_grid">
+          <div id="list-last-wish"></div>
+
+   			<!--<div class='col-md-3'>
+   			  <div class='grid1'>
+   				<div class='view view-first'>
+                  <div class='index_img'><img src='img/pic1.jpg' class='img-responsive' alt=''/></div>
+   			          <div class='mask'>
+                        <ul class='mask_img'>
+                        	<li class='star'><img src='img/star.png'/></li>
+                        	<li class='set'><img src='img/set.png'/></li>
+                        	<div class='clearfix'> </div>
+                        </ul>
+                       </div>
+                   </div> 
+                   <i class='home'></i>
+   				 <div class='inner_wrap'>
+   				 	<h3>软件园哪个宿舍有空床位急，有闺蜜要来山东玩，很着急</h3>
+   				 	<ul class='star1'>
+   				 	  <h4 class='green nick'>小维</h4>
+   				 	  <li><a class='btna trigger' href=''>心愿详情</a></li>
+   				 	</ul>
+   				 </div>
+   			   </div>
+   			</div>-->
+
+            <div class="clearfix"> </div>
+         </div>
+      </div>
+      </div>
+      </div>
+
+      <!--  招募平台   -->   
+      <div class="content_top wow bounceInRight" data-wow-delay="0.4s">
+		<div class="container">
+			<div class="col-md-4 bottom_nav">
+				<div class="content_menu">
+					<ul>
+					<li class="active">招募平台</li> 
+					<li><a href="activity.html">查看更多</a></li>
+					</ul>
+				</div>
+			</div>
+	      <div class="col-md-4 content_dropdown1">
+	      </div>
+	      <div class="col-md-4 filter_grid">
+	         <ul class="filter">
+	            <li class="fil">最新招募平台</li>
+	            <li><a> <i class="icon1"> </i> </a></li>
+	            <li><a> <i class="icon2"> </i> </a></li>
+	            <li><a> <i class="icon3"> </i> </a></li>
+	            <li><a> <i class="icon4"> </i> </a></li>
+	            <li><a> <i class="icon5"> </i> </a></li>
+	         </ul>
+	      </div>
+      	</div>
+   	  </div>        
+    <div class="content_middle wow bounceInLeft" data-wow-delay="0.4s">
+        <div class="container">
+          <div class="content_middle_box"  style="padding-top: 10px;">
+   	    <div class="middle_grid wow fadeInUp" data-wow-delay="0.4s">
+        <div id="list-last-labs"></div>
+
+   			<div class='col-md-6'>
+   			   <div class='grid1'>
+   			     <div class='index_img'><img src='img/pic4.jpg' class='img-responsive' alt=''/></div>
+   				  <i class='m_home'> </i>
+                  <ul class='vision'>
+                  	 <li>校友接待</li>
+                  	 <li class='desc'><a> <img src='img/star1.png' alt=''>期望人数(100)</a></li>
+                  </ul>
+   				  <div class='inner_wrap1'>
+   				 	<ul class='item_module'>
+   				 	 	<li class='module_left'><img src='img/m1.jpg' class='img-responsive' alt=''/></li>
+   				 	 	<li class='module_right'>
+   				 	 		<img src='img/m_star.png' class='img-responsive' alt=''/>
+   				 	 		<h5>校庆接待外宾入住</h5>
+   				 	 		<p>"我们希望外表端正的同学(不限男女),在11月30日至12月2日,能在山大中心校区负责接待外来校友入住酒店,并负责消息的通知。要求善于合作，交流能力强。</p>
+   				 	 		<a href='activity.html' class='content_btn'>....read more</a>
+   				 	 	</li>
+   				 	 	<div class='clearfix'> </div>
+   				 	 </ul>
+   				  </div> 
+   			   </div>
+   			</div>
+
+   			<div class="clearfix"></div>
+   			</div>
+   		  </div>
+
+   		  <!--   志愿者风采   -->
+   		  <div class="offering">
+   		  	  <h2>积极志愿者风采展示</h2>
+   		  	  <h3>微心愿，志愿者</h3>
+   		  	  <ul class="icons wow fadeInUp" data-wow-delay="0.4s">
+   		  	  	 <li><i class="icon1"> </i><span class="one"> </span></li>
+   		  	  	 <li><i class="icon2"> </i><span class="two"> </span></li>
+   		  	  	 <li><i class="icon3"> </i><span class="three"> </span></li>
+   		  	  	 <li><i class="icon4"> </i><span class="four"> </span></li>
+   		  	  	 <li><i class="icon5"> </i></li>
+   		  	  </ul>
+   		  	  <div class="real">
+   		  	  	<div class="col-sm-6">
+   		  	  	  <ul class="service_grid">
+   	   				<i class="s1"> </i>
+   	   				 <li class="desc1 wow fadeInRight" data-wow-delay="0.4s">
+                        <h5 style="color: #1DB05E">王成</h5>
+                        <h3>NO.1</h3>
+   	   				   <p>作为一名志愿活动爱好者与主播，能够作为志愿者与大学生一起参加活动，对我来收获很大，也谢谢这个平台，让我能第一时间与有趣的项目取得联系。以后会更加努力的。</p>
+   	   				 </li>
+   	   				 <div class="clearfix"> </div>
+   	   			   </ul>
+   	   			 </div>
+   	   			 <div class="col-sm-6">
+   		  	  	  <ul class="service_grid">
+   	   				<i class="s2"> </i>
+   	   				 <li class="desc1 wow fadeInRight" data-wow-delay="0.4s">
+   	   				   <h5 style="color: #1DB05E">杨华</h5>
+                        <h3>NO.2</h3>
+                        <p>对于大学生的志愿项目，我愿意投以百分之两百的热情。参加志愿活动，对于我来说就是生活的一部分，让我很满足。</p>
+   	   				 <div class="clearfix"> </div>
+   	   			   </ul>
+   	   			 </div>
+                   <div class="space"> </div>
+               <div class="col-sm-6">
+                 <ul class="service_grid">
+                     <i class="s2"> </i>
+                      <li class="desc1 wow fadeInRight" data-wow-delay="0.4s">
+                        <h5 style="color: #1DB05E">郑翔</h5>
+                        <h3>NO.3</h3>
+                        <p>没有创造的生活不能算生活，只能算活着。不要轻易用过去来衡量生活的幸与不幸！每个人的生命都是可以绽放美丽的——只要你珍惜。</p>
+                      <div class="clearfix"> </div>
+                     </ul>
+                   </div>
+               <div class="col-sm-6">
+                 <ul class="service_grid">
+                     <i class="s1"> </i>
+                      <li class="desc1 wow fadeInRight" data-wow-delay="0.4s">
+                        <h5 style="color: #1DB05E">徐佳怡</h5>
+                        <h3>NO.4</h3>
+                        <p>善待他人，体谅他人，热爱生命，努力生活。牢记所得到的，忘记所付出的。喜欢的事情，不管回报尽管去做吧！</p>
+                      </li>
+                      <div class="clearfix"> </div>
+                     </ul>
+                   </div>
+   	   			 <div class="clearfix"> </div>
+   	   			 </div>
+   		  	  </div>
+   		  </div>
+   	  </div>
+   </div>
+   <div class="footer">
+   	<div class="container">
+   	 <div class="footer_top">
+   	   <h3>相信我们</h3>
+   	   <form>
+		<span>
+			<i><img src="img/mail.png" alt=""></i>
+		    <input type="text" value="请留下你的邮箱" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请留下你的邮箱';}">
+		    <label class="btn1 btn2 btn-2 btn-2g"> <input name="submit" type="submit" id="submit" value="与我们合作"> </label>
+		    <div class="clearfix"> </div>
+		</span>			 	    
+	   </form>
+	  </div>
+	  <div class="footer_grids">
+	     <div class="footer-grid">
+			<h4>关于我们</h4>
+			<ul class="list1">
+				<li><a href="#">联系我们</a></li>   
+				<li><a href="#">公司信息</a></li>
+				<li><a href="#">投资者关系</a></li>
+				<li><a href="#">新闻发布</a></li>
+				<li><a href="#">公司地图</a></li>
+			</ul>
+		  </div>
+		  <div class="footer-grid">
+			<h4>法律声明</h4>
+			<ul class="list1">
+				<li><a href="#">使用条款</a></li>
+				<li><a href="#">隐私条款</a></li>
+				<li><a href="#">cookie</a></li>
+			</ul>
+		  </div>
+		  <div class="footer-grid last_grid">
+			<h4>关注我们</h4>
+			<ul class="footer_social wow fadeInLeft" data-wow-delay="0.4s">
+			  <li><a href=""> <i class="fb"> </i> </a></li>
+			  <li><a href=""><i class="tw"> </i> </a></li>
+			  <li><a href=""><i class="google"> </i> </a></li>
+			  <li><a href=""><i class="u_tube"> </i> </a></li>
+		 	</ul>
+		 	<div class="copy wow fadeInRight" data-wow-delay="0.4s">
+              <p>Copyright &copy; 2015.11.Jem<a target="_blank" href="#"></a></p>
+	        </div>
+		  </div>
+		  <div class="clearfix"> </div>
+	   </div>
+      </div>
+   </div>
+<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+
+   <!--<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>-->
+   <script type="text/javascript">
+		    $('#datepicker').datetimepicker({
+				  lang:"ch",           //语言选择中文
+			      format:"Y-m-d",      //格式化日期
+			      timepicker:false,    //关闭时间选项
+			      yearStart:1950,     //设置最小年份
+			      yearEnd:2050,        //设置最大年份
+			      todayButton:false    //关闭选择今天按钮
+			});
+	</script>
+   <script type="text/javascript">
+    
+   </script>
+</body>
+</html>

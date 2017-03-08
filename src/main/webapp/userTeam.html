@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>团队空间</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+	<link href="css/banner.css" rel="stylesheet" type="text/css" />
+	<link href="css/userPerson.css" rel='stylesheet' type='text/css' />
+	<link href="css/wishWall.css" rel='stylesheet' type='text/css' />
+	<link href="css/default.css" rel='stylesheet' type='text/css' />
+	<link href="css/ribbon.css" rel='stylesheet' type='text/css' />
+	<link href="css/normalize.css" rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/ >
+	<link href="css/activityshow.css" rel='stylesheet' type='text/css' />
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery.datetimepicker.full.js"></script>
+	<!--分页功能-->
+	<script src="js/extendPagination.js" type="text/javascript"></script>
+	<!--图片上传功能-->
+	<link href="zyupload/skins/zyupload-1.0.0.min.css" rel="stylesheet" type="text/css" />
+	<script src="zyupload/zyupload.basic-1.0.0.min.js" type="text/javascript"></script>
+
+
+	<link href="css/userPerson.css" rel='stylesheet' type='text/css' />
+	<!--Ueditor编辑器-->
+	<!--<link href="ueditor/themes/default/_css/ueditor.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" charset="utf-8">
+    window.UEDITOR_HOME_URL = "/weishSDU/ueditor/"; //UEDITOR_HOME_URL、config、all这三个顺序不能改变
+    </script>
+    <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.parse.js"></script>-->
+</head>
+<body>
+<div class="header">
+	<div class="header-left">
+		<div class="logo">
+			<a href="index.html"><img src="img/logo.png" alt=""/></a>
+		</div>
+		<div class="menu">
+			<!--<a class="toggleMenu" href="#"><img src="img/nav.png" alt="" /></a>-->
+			<ul class="nav" id="nav">
+				<li class="active"><a href="index.html" style="color: #e94e38;">主页</a></li>
+				<li><a href="wishWall.html">微心愿平台</a></li>
+				<li><a href="activity.html">招募平台</a></li>
+				<li><a href="#">我的空间</a></li>
+				<li><a href="">志愿者风采</a></li>
+				<div class="clearfix"></div>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	<div class="header-right" >
+		<!--搜索框-->
+		<div class="search-box">
+			<div id="sb-search" class="search">
+				<input class="search-input"  placeholder="请输入搜索内容..." type="search" name="search" id="search" />
+				<input class="search-submit" type="submit" id="search-btn" value="" onclick="toggleSearch()"/>
+			</div>
+		</div>
+		<!--登录按钮-->
+		<div class="login" data-toggle="modal" data-target="#myModal1" id="login-div" style="display: block;">
+			<img src="img/login.png" />
+			<span>登录</span>
+		</div>
+		<div class="register" data-toggle="modal" data-target="#myModal2" id="reg-div" style="display: block;">
+			<img src="img/注册.png" />
+			<span>注册</span>
+		</div>
+		<div class="login welcome" style="display: none;">
+			<p>欢迎您：<span id="user-mes">Lily</span></p>
+		</div>
+	</div>
+</div>
+<!--点击登录后弹出的框-->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="btn-panel">
+					<div class="person-btn personlog-btn header-btn" onclick="personPanelLog()">个人</div>
+					<div class="team-btn teamlog-btn header-btn" onclick="teamPanelLog()">团队</div>
+					<button type="button" class="close close-btn header-btn" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="user-panel">
+					<div class="panel-container">
+						<!--个人登录面板-->
+						<div id="personlog-content">
+							<div class="input-container">
+								<label for="tel">账号</label><input class="modal-input" type="text" id="tel" placeholder="请输入您的登录手机号" />
+							</div>
+							<div class="input-container">
+								<label for="password">密码</label><input class="modal-input" type="password" id="password" placeholder="请输入密码" />
+							</div>
+							<input type="checkbox" id="login-check" />下次自动登录
+							<a>忘记密码</a>
+							<div class="login-container input-container" id="person-login" >
+								登录
+							</div>
+						</div><!--个人登录面板-->
+						<!--团队登录面板-->
+						<div id="teamlog-content" style="display: none;">
+							<div class="input-container">
+								<label for="tel">团队账号</label><input class="modal-input" type="text" id="team-tel" placeholder="请输入您的登录手机号" />
+							</div>
+							<div class="input-container">
+								<label for="password">团队密码</label><input class="modal-input" type="password" id="team-password" placeholder="请输入密码" />
+							</div>
+							<input type="checkbox" id="login-check" />下次自动登录
+							<a>忘记密码</a>
+							<div class="login-container input-container" id="team-login" >
+								登录
+							</div>
+						</div><!--团队登录面板-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--点击注册后弹出的模态框-->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="btn-panel">
+					<div class="person-btn  personreg-btn header-btn" onclick="personPanel()">个人</div>
+					<div class="team-btn teamreg-btn header-btn" onclick="teamPanel()">团队</div>
+					<button type="button" class="close close-btn header-btn" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="user-panel">
+					<div class="panel-container">
+						<!--个人面板-->
+						<div id="person-content">
+							<div class="input-container">
+								<label for="reg-tel">账号</label><input class="modal-input" type="text" id="reg-tel" placeholder="请使用手机号作为账号" />
+							</div>
+							<div class="input-container">
+								<label for="reg-email">邮箱</label><input class="modal-input" type="text" id="reg-email" placeholder="请使用您的常用邮箱" />
+							</div>
+							<div class="input-container">
+								<label for="reg-name">昵称</label><input class="modal-input" type="text" id="reg-name" placeholder="请输入您的用户名" />
+							</div>
+							<div class="input-container">
+								<label for="sex">性别</label>
+								<input type="radio" checked="checked" value="男" name="Sex" class="check-sex" /><img src="img/男.png" />
+								<input type="radio" class="check-sex" value="女" name="Sex" /><img src="img/女1.png" />
+							</div>
+							<div class="input-container">
+								<label for="datepicker">生日</label><input type="text" class="modal-input" id="datepicker" />
+							</div>
+							<div class="input-container">
+								<label for="reg-password">密码</label><input class="modal-input" type="password" id="reg-password" placeholder="请输入密码" />
+							</div>
+							<div class="input-container">
+								<label for="passwordNext">确认</label><input class="modal-input" type="password" id="passwordNext" placeholder="请再次输入密码" />
+							</div>
+							<div class="login-container input-container" id="person-reg">
+								注册
+							</div>
+						</div><!--个人面板-->
+						<!--团队面板-->
+						<div id="team-content" >
+							<div class="input-container">
+								<label for="regt-tel">账号</label><input class="modal-input" type="text" id="regt-tel" placeholder="请使用手机号作为账号" />
+							</div>
+							<div class="input-container">
+								<label for="regt-name">队名</label><input class="modal-input" type="text" id="regt-name" placeholder="所属的团队名称"  />
+							</div>
+							<div class="input-container">
+								<label for="regt-area">地址</label><input class="modal-input" type="text" id="regt-area" placeholder="团队所在地"  />
+							</div>
+							<div class="input-container">
+								<label for="regt-email">邮箱</label><input class="modal-input" type="text" id="regt-email" placeholder="请输入您的常用邮箱"  />
+							</div>
+							<div class="input-container">
+								<label for="regt-pass">密码</label><input class="modal-input" type="password" id="regt-pass" placeholder="请设置密码" />
+							</div>
+							<div class="input-container">
+								<label for="regt-passN">确认</label><input class="modal-input" type="password" id="regt-passN" placeholder="请再次输入密码" />
+							</div>
+							<div class="login-container input-container" id="team-reg">
+								注册
+							</div>
+						</div><!--团队面板-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--页面的头像展示-->
+<div class="top">
+	<div class="user-mess">
+		<img id="user-photo" src="img/04.png" />
+		<p id="user-name"><span>昵称：</span><span id="userName">Lily</span></p>
+		<a class="edit" href="#edit-wrapper">编辑资料</a>
+	</div>
+</div>
+<!--切换内容-->
+<div class="tab">
+	<div class="tab-btn">
+		<div class="tab-toggle" id="lingqu">
+			<a><img src="img/lingqu.png" /><span>团队心愿</span></a>
+		</div>
+		<div class="tab-toggle" id="lingquAct">
+			<a><img src="img/lingqu.png" /><span>团队活动</span></a>
+		</div>
+		<div class="tab-toggle" id="volunteer">
+			<a><img src="img/volunteer (1).png" /><span>志愿活动</span></a>
+		</div>
+		<div class="tab-toggle" id="pub">
+			<a><img src="img/edit.png" /><span>发布活动</span></a>
+		</div>
+		<!--<div class="tab-toggle" id="volunteer">
+            <a><img src="img/volunteer (1).png" /><span>志愿活动</span></a>
+        </div>-->
+		<div class="tab-toggle" id="edit-mess">
+			<a><img src="img/person.png" /><span>团队信息</span></a>
+		</div>
+	</div>
+	<div class="tab-container">
+		<!--领取的微心愿-->
+		<div id="lingqu-wrapper" class="tab-wrapper" style="display: block;">
+			<div class="lingquContent">
+			<div class="wishes">
+				<div class="wish-up">
+					<div class="image-wrap"><img src="img/0002.jpg" class="showwish"/></div>
+					<div class="wish-status"><span class="ribbon3">进行中</span></div>
+				</div>
+				<div class="wish-down">
+					<div class="publisher-show">
+						<div class="publisher-img publisher"><img src="img/m2.jpg"></div>
+						<div class="publisher pub-sex"><img src="img/女2.png"></div>
+						<div class="publisher pub-age"><p>19</p></div>
+						<div class="line publisher"></div>
+						<div class="publisher pub-name"><p>喵喵喵</p></div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="wish-topic">
+						<p>有没有想轮滑逛济南的逛即逛即逛</p>
+					</div>
+				</div>
+			</div>
+			<div class="wishes">
+				<div class="wish-up">
+					<div class="image-wrap"><img src="img/0003.jpg" class="showwish"/></div>
+					<div class="wish-status"><span class="ribbon3">进行中</span></div>
+				</div>
+				<div class="wish-down">
+					<div class="publisher-show">
+						<div class="publisher-img publisher"><img src="img/m2.jpg"></div>
+						<div class="publisher pub-sex"><img src="img/女2.png"></div>
+						<div class="publisher pub-age"><p>19</p></div>
+						<div class="line publisher"></div>
+						<div class="publisher pub-name"><p>喵喵喵</p></div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="wish-topic">
+						<p>有没有想轮滑逛济南的逛即逛即逛</p>
+					</div>
+				</div>
+			</div>
+			<div class="wishes">
+				<div class="wish-up">
+					<div class="image-wrap"><img src="img/e2.jpg" class="showwish"/></div>
+					<div class="wish-status"><span class="ribbon3" style="background-color: #1db05e;">已完成</span></div>
+				</div>
+				<div class="wish-down">
+					<div class="publisher-show">
+						<div class="publisher-img publisher"><img src="img/m2.jpg"></div>
+						<div class="publisher pub-sex"><img src="img/女2.png"></div>
+						<div class="publisher pub-age"><p>19</p></div>
+						<div class="line publisher"></div>
+						<div class="publisher pub-name"><p>喵喵喵</p></div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="wish-topic">
+						<p>有没有想轮滑逛济南的逛即逛即逛</p>
+					</div>
+				</div>
+			</div>
+			<div class="wishes"></div>
+			<div class="wishes"></div>
+			<div class="wishes"></div>
+			<div class="wishes"></div>
+			<div class="wishes"></div>
+			<div class="wishes"></div>
+			<div class="clearfix"></div>
+			</div>
+			<div class="pagepub-ctrl"></div>
+		</div>
+		<!--领取的志愿者活动-->
+		<div id="lingqu-act" class="tab-wrapper" style="display: none;">
+			<div class="'lingquActShow">
+			<div class="activities">
+				<div class="up-act">
+					<img src="img/wishwall1.jpg" />
+				</div>
+				<div class="down-act">
+					<h5>活动标题活动标题活动标题活动标</h5>
+					<p>活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具
+						体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述</p>
+					<p class="act-publisher">发布者：<a>山大汪</a></p>
+					<p>截止时间：<span id="deadTime">2016-5-31</span></p>
+				</div>
+			</div>
+			</div>
+			<div class="pagepub-ctrl"></div>
+		</div>
+		<div id="volunteer-wrapper" class="tab-wrapper" style="display: none;">
+			<div class="activityShow">
+				<div class="activities">
+					<div class="up-act">
+						<img src="img/wishwall1.jpg" />
+					</div>
+					<div class="down-act">
+						<h5>活动标题活动标题活动标题活动标</h5>
+						<p>活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具
+							体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述</p>
+						<p class="act-publisher">发布者：<a>山大汪</a></p>
+						<div class="more-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#actModal">了解更多</div>
+					</div>
+				</div>
+				<div class="activities">
+					<div class="up-act">
+						<img src="img/wishwall1.jpg" />
+					</div>
+					<div class="down-act">
+						<h5>活动标题活动标题活动标题活动标</h5>
+						<p>活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具
+							体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述</p>
+						<p class="act-publisher">发布者：<a>山大汪</a></p>
+						<div class="more-btn">了解更多</div>
+					</div>
+				</div>
+				<div class="activities">
+					<div class="up-act">
+						<img src="img/wishwall1.jpg" />
+					</div>
+					<div class="down-act">
+						<h5>活动标题活动标题活动标题活动标</h5>
+						<p>活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具
+							体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述</p>
+						<p class="act-publisher">发布者：<a>山大汪</a></p>
+						<div class="more-btn">了解更多</div>
+					</div>
+				</div>
+				<div class="activities">
+					<div class="up-act">
+						<img src="img/wishwall1.jpg" />
+					</div>
+					<div class="down-act">
+						<h5>活动标题活动标题活动标题活动标</h5>
+						<p>活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具
+							体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述</p>
+						<p class="act-publisher">发布者：<a>山大汪</a></p>
+						<div class="more-btn">了解更多</div>
+					</div>
+				</div>
+				<div class="activities">
+				</div>
+				<div class="activities">
+				</div>
+				<div class="clearfix">
+				</div>
+			</div>
+			<div id="fabuActCtrl"></div>
+		</div>
+		<!--发布活动的部分-->
+		<div id="pub-wrapper" class="tab-wrapper" style="display: none;">
+			<div class="pub-header">
+				<h4>发布活动</h4>
+			</div>
+			<div class="pub-content">
+				<ul>
+					<li><label for="simpleDes">简述</label><input type="text" id="simpleDes" placeholder="活动的概况，不超过15个字~"/></li>
+					<li><label for="expectNum">期待人数</label><input type="text" id="expectNum"/></li>
+					<li><label for="expectTime">活动日期</label><input type="text" id="expectTime"/></li>
+				</ul>
+				<p>活动详述</p>
+				<textarea width="500px" height="300px" id="wishText" ></textarea>
+				<div id="zyupload" class="zyupload"></div>
+			</div>
+			<div id="pub-btn">发布</div>
+		</div>
+
+		<!--参与的志愿者招募活动-->
+
+		<div id="edit-wrapper" class="tab-wrapper" style="display: none; background-color: #fff;">
+			<div class="edit-basic" >
+				<h4>基本信息</h4>
+				<div class="row">
+					<div class="col-xs-12 col-sm-8">
+						<form class="form-horizontal" >
+
+							<!-- 账号 -->
+							<div class="formgroup">
+								<label>账号：</label>
+								<div class="userMessage-show" id="userId">17865195566</div> <!-- 显示用户账号，不可更改 -->
+							</div>
+
+							<!-- 昵称-->
+							<div class="formgroup">
+								<label>名称：</label>
+								<div  class="userMessage-show">
+									<span id="username-show">Lily</span>     <!-- 显示用户昵称-->
+									<span id="username-change" class="userChange-btn"><a>修改</a></span>
+								</div>
+								<div id="username-form" style="display:none;">
+									<input class=" userEdit-input" type="text" id="form-field-username" />
+									<span class="userEdit-btn" id="username-btn">确定</span>
+								</div>
+							</div>
+							<!--地址-->
+							<div class="formgroup">
+								<label >地址：</label>
+								<div  class="userMessage-show ">
+									<span id="useraddress-show">济南</span> <!--显示用户地址-->
+								</div>
+							</div>
+							<!--邮箱-->
+							<div class="formgroup">
+								<label>邮箱：</label>
+								<div  class="userMessage-show">
+									<span id="useremail-show">1234567891@qq.com</span> <!-- 显示用户邮箱-->
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="clearfix form-actions">
+					<div class="col-md-offset-3 col-md-9">
+						<button class="btn btn-info" type="button" id="save-btn">
+							<i class="ace-icon fa fa-check bigger-110"></i>
+							保存
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="clearfix"></div>
+
+<!--点击了解更多之后弹出的模态框-->
+<div class="modal fade" id="actModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content act-modal-content">
+			<div class="modal-header act-header">
+				<button type="button" class="close act-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel"><img src="img/活动2.png" style="margin-right:15px;width: 25px;height: 25px;">活动详情</h4>
+			</div>
+			<div class="modal-body act-body">
+				<h4 id="activityDes">奥体中心招募志愿者</h4>
+				<ul class="act">
+					<li class="actMess"><span>发布者：</span><span id="publisher">喵喵喵</span></li>
+					<li class="actMess"><span>期望人数：</span><span id="pubAge">35</span></li>
+					<li class="actMess"><span> 截止时间：</span><span id="deadline">2016-04-01</span></li>
+					<div class="clearfix"></div>
+				</ul>
+				<img id="activityPic" src="img/pic5.jpg"/>
+				<p class="wish-text" id="complexAct">
+					济南市奥体中心招募志愿者，提供专车接送，免费晚餐，快来报名啊济南市奥体中心招募志愿者，提供专车接送，免费晚餐，快来报名啊济南市奥体中心招募志愿者，提供专车接送，免费晚餐，快来报名啊
+					济南市奥体中心招募志愿者，提供专车接送，免费晚餐，快来报名啊济南市奥体中心招募志愿者，提供专车接送，免费晚餐，快来报名啊济南市奥体中心招募志愿者，提供专车接送，免费晚餐，快来报名啊
+					济南市奥体中心招募志愿者，提供专车接送，免费晚餐，快来报名啊济南市奥体中心招募志愿者，提供专车接送，免费晚餐，快来报名啊济南市奥体中心招募志愿者，提供专车接送，免费晚餐，快来报名啊
+				</p>
+				<p class="person-num" >已报名人数：<span id="bmCount">26</span></p>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="js/banner.js"></script>
+<script type="text/javascript" src="js/userTeam.js"></script>
+<!--<script type="text/javascript" src="js/loginJudge.js"></script>-->
+<script type="text/javascript">
+	var picSrc=path;
+	$('#datepicker').datetimepicker({
+		lang:"ch",           //语言选择中文
+		format:"Y-m-d",      //格式化日期
+		timepicker:false,    //关闭时间选项
+		yearStart:1950,     //设置最小年份
+		yearEnd:2050,        //设置最大年份
+		todayButton:false    //关闭选择今天按钮
+	});
+</script>
+<script type="text/javascript">
+	$('#expectTime').datetimepicker({
+		lang:"ch",           //语言选择中文
+		format:"Y-m-d",      //格式化日期
+		timepicker:false,    //关闭时间选项
+		yearStart:1950,     //设置最小年份
+		yearEnd:2050,        //设置最大年份
+		todayButton:false    //关闭选择今天按钮
+	});
+</script>
+
+<script type="text/javascript">
+	$(function(){
+		// 初始化插件
+		$("#zyupload").zyUpload({
+			width            :   "650px",                 // 宽度
+			height           :   "400px",                 // 宽度
+			itemWidth        :   "140px",                 // 文件项的宽度
+			itemHeight       :   "115px",                 // 文件项的高度
+			url              :   "activityPic",  // 上传文件的路径
+			fileType         :   ["jpg","png"],// 上传文件的类型
+			fileSize         :   51200000,                // 上传文件的大小
+			multiple         :   false,                    // 是否可以多个文件上传
+			dragDrop         :   false,                   // 是否可以拖动上传文件
+			tailor           :   false,                   // 是否可以裁剪图片
+			del              :   true,                    // 是否可以删除文件
+			finishDel        :   false,  				  // 是否在上传文件完成后删除预览
+			/* 外部获得的回调接口 */
+			onSelect: function(selectFiles, allFiles){    // 选择文件的回调方法  selectFile:当前选中的文件  allFiles:还没上传的全部文件
+				console.info("当前选择了以下文件：");
+				console.info(selectFiles);
+			},
+			onDelete: function(file, files){              // 删除一个文件的回调方法 file:当前删除的文件  files:删除之后的文件
+				console.info("当前删除了此文件：");
+				console.info(file.name);
+			},
+			onSuccess: function(file, response){          // 文件上传成功的回调方法
+						path=response;
+//						console.info("此文件上传成功：");
+//						console.info(file.name);
+//						console.info("此文件上传到服务器地址：");
+//						console.info(response);
+//						$("#uploadInf").append("<p>上传成功，文件地址是：" + response + "</p>");
+			},
+			onFailure: function(file, response){          // 文件上传失败的回调方法
+				console.info("此文件上传失败：");
+				console.info(file.name);
+			},
+			onComplete: function(response){           	  // 上传完成的回调方法
+				console.info("文件上传完成");
+				console.info(response);
+			}
+		});
+
+	});
+</script>
+<!--/*******************************************************************************************/-->
+<!--团队领取的微心愿展示-->
+<!--获取当前团队用户领取的微心愿数目以便生成选择按钮-->
+<script type="text/javascript">
+	var pubTotal;
+	//页面加载完后就请求
+	$.ajax({
+		type: "post",
+		url: "teamDrawWishCount",
+//				这个地方怎么请求当前人的心愿
+		dataType: "json",
+		success: function (data) {
+			pubTotal = data;
+			$('.pagepub-ctrl').extendPagination({
+				totalCount: data,
+				showCount: 10,
+				limit: 1
+			});
+			createWishes(1,pubpTotal,1);
+		}
+	});
+
+
+	//点击按钮时请求
+	$("#lingqu").click(function () {
+		var $volwra = $("#lingqu-wrapper");
+		$volwra.empty();
+		var newnode1 = "<div class='lingqucontent'></div>";
+		$volwra.append(newnode1);
+		var newnode2 = "<div class='pagepub-ctrl'></div>";
+		$volwra.append(newnode2);
+		$.ajax({
+			type: "post",
+			url: "myDrawWishCount",
+			success: function (data) {
+				pubTotal = data;
+				$('.pagepub-ctrl').extendPagination({
+					totalCount: data,
+					showCount: 10,
+					limit: 1,
+				});
+//					$(".fabucontent").empty();
+//					$('#fabu-wrapper').appendChild()
+				createWishes(1, pubTotal, 1);
+			}
+		});
+	});
+
+	function createWishes(id,all,limit){
+		$.ajax({
+			type:"get",
+			url:"teamDrawWish",
+			data:{
+				"id":id,
+				"all":all,
+				"limit":limit
+			},
+			dataType:"json",
+			success:function(data){
+				$(".lingqucontent").empty();
+				createWish(data);
+			}
+		});
+	}
+	function createWish(data){
+		var sexpic;
+		var len = data.length;
+//			var content = ""
+//			$("#fabu-wrapper").append("")
+		for(var i=0;i<len;i++){
+			if(data[i].sex=='女'){
+				sexpic = "img/女2.png";
+			}else if(data[i].sex=='男'){
+				sexpic = "img/男2.png";
+			}
+			var newWish = '<div class="wishes"><div class="wish-up"><div class="image-wrap"><img src="'+data[i].wishpic+'" class="showwish"/></div><div class="wish-status"><span class="ribbon3">'
+					+data[i].status+'</span></div></div><div class="wish-down"><div class="publisher-show"><div class="publisher-img publisher"><img src="'
+					+data[i].userimg+'"></div><div class="publisher pub-sex"><img src="'+sexpic+'"></div><div class="publisher pub-age"><p>'
+					+data[i].age+'</p></div><div class="line publisher"></div><div class="publisher pub-name"><p>'
+					+data[i].publisher+'</p></div><div class="clearfix"></div></div><div class="wish-topic"><p>'
+					+data[i].simpleDes+'</p></div></div></div>';
+			$(".fabucontent").append(newWish);
+		}
+	}
+</script>
+<script type="text/javascript">
+	//     此处修改了插件的源代码
+//	function createDrawWishes(id, all, limit) {
+//		var _data = {
+//			"id": id,
+//			"all": all,
+//			"limit": limit
+//		}
+//		$.ajax({
+//			type: "get",
+//			url: "获取相应区段的微心愿",
+//			data: _data,
+//			dataType: "json",
+//			success: function (data) {
+//				$(".lingqucontent").empty();
+//				createDrawWish(data);
+//			}
+//		});
+//	}
+//	function createDrawWish(data) {
+//		var sexpic;
+//		var len = data.length;
+//		for (var i = 0; i < len; i++) {
+//			if (data[i].sex == '女') {
+//				sexpic = "img/女2.png";
+//			} else if (data[i].sex == '男') {
+//				sexpic = "img/男2.png";
+//			}
+//			var newWish = '<div class="wishes"><div class="wish-up"><div class="image-wrap"><img src="' + data[i].wishpic + '" class="showwish"/></div><div class="wish-status"><span class="ribbon3">'
+//					+ data[i].status + '</span></div></div><div class="wish-down"><div class="publisher-show"><div class="publisher-img publisher"><img src="'
+//					+ data[i].userimg + '"></div><div class="publisher pub-sex"><img src="' + sexpic + '"></div><div class="publisher pub-age"><p>'
+//					+ data[i].age + '</p></div><div class="line publisher"></div><div class="publisher pub-name"><p>'
+//					+ data[i].publisher + '</p></div><div class="clearfix"></div></div><div class="wish-topic"><p>'
+//					+ data[i].simpleDes + '</p></div></div></div>'
+//			$(".lingqucontent").append(newWish);
+//		}
+//	}
+</script>
+<!--团队领取的志愿活动-->
+<script type="text/javascript">
+	var pubactTotal;
+$('#lingquAct').click(function(){
+	$.ajax({
+		url:'',
+		type:'post',
+		dataType:'json',
+		success:function (data) {
+			pubactTotal = data;
+			$('.pagepub-ctrl').extendPagination({
+				totalCount: data,
+				showCount: 10,
+				limit: 1
+			});
+			createlingquActs(1,pubpTotal,1);
+		}
+	});
+});
+
+	function createlingquActs(id,all,limit){
+		var _data = {
+			'id':id,
+			'all':all,
+			'limit':limit
+		};
+
+		$.ajax({
+			url:'',
+			type:'post',
+			data:_data,
+			dataType:'json',
+			success:function(data){
+				createlingquAct(data);
+			}
+		});
+	}
+
+	function createlingquAct(data){
+          $('.lingquActShow').empty();
+		  var len = data.length;
+
+		for(var i=0;i<len;i++){
+//			这里的参数名字要改一下
+			var newlingquact = '<div class="activities"> <div class="up-act"> <img src="'
+								+data.actpic+'" /></div> <div class="down-act"> <h5>'
+								+data.actsimpleDes+'</h5> <p>'
+								+data.actcomplexDes+'</p><p class="act-publisher">发布者：<a>'
+								+data.actpublisher+'</a></p><p>截止时间：<span id="deadTime">'
+								+data.deadTime+'</span></p></div></div></div>';
+			$('.lingquActShow').append(newlingquact);
+		}
+	}
+</script>
+<!--团队发布的招募活动-->
+<script type="text/javascript">
+	var pubpTotal;
+	function createActivities(id,all,limit){
+		var _data = {
+			"id":id,
+			"all":all,
+			"limit":limit
+		};
+		$.ajax({
+			type:"post",
+			url:"myPubActivity",
+			data:_data,
+			dataType:"json",
+			success:function(data){
+				$(".fabucontent").empty();
+				createAct(data);
+			}
+		});
+	}
+	$("#volunteer").click(function(){
+		var $vol = $("#volunteer-wrapper");
+		$vol.empty();
+		var newnode1 = "<div class='fabucontent'></div>";
+		$vol.append(newnode1);
+		var newnode2 = "<div class='pagepub-ctrl'></div>";
+		$vol.append(newnode2);
+		$.ajax({
+			type:"post",
+			url:"myActivityCount",
+			dataType:"json",
+			success:function(data){
+				pubpTotal = data;
+				$('.pagepub-ctrl').extendPagination({
+					totalCount: data,
+					showCount: 10,
+					limit: 1
+				});
+				createActivities(1,pubpTotal,1);
+			}
+		});
+	});
+</script>
+<!--根据点击的按钮显示相应区段的活动-->
+<script type="text/javascript">
+
+	//     此处修改了插件的源代码
+	function createAct(data){
+		var $add=$(".fabucontent");
+		var len = data.length;
+		for(var i=0;i<len;i++) {
+			var newactivity = '<div class="activities"><div class="up-act"><img src="'
+					+ data[i].activitypic + '" /></div><h5>'
+					+ data[i].simpleDes + '</h5><p>'
+					+ data[i].complexDes + '</p><p class="act-publisher">发布者：<a>'
+					+ data[i].publisher+ '</a></p><div class="more-btn" onclick="learnMore(' + data[i].activityId + ')" class="more-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#actModal" id="'
+					+ data[i].activityId + '">了解更多</div></div></div>';
+			$add.append(newactivity);
+		}
+	}
+
+</script>
+<!--点击了解更多弹出志愿活动的详细信息-->
+<script type="text/javascript">
+	function learnMore(id){
+		var data={"activityId":id};
+		$.ajax({
+			url:"activityMore",
+			type:"get",
+			data:data,
+			dataType:"json",
+			success:function(data){
+				data=data[0];
+				$("#activityDes").text(data.simpleDes);
+				$("#publisher").text(data.publisher);
+				$("#pubAge").text(data.expectNum);
+				$("#deadline").text(data.deadLine);
+				$("#activityPic").attr("src",data.activitypic);
+				$("#complexAct").text(data.complexDes);
+				$("#bmCount").text(data.status);
+				$(".saving-btn").attr('id',data.activityId);
+			}
+		});
+	}
+</script>
+<!--修改已报名的人数-->
+<script type="text/javascript">
+	$(".saving-btn").click(function(){
+		var count = $("#bmCount").val();
+		var actid = $(".saving").attr("id");
+		var _data = {
+			"count":count,
+			"actid":actid
+		}
+		$.ajax({
+			type:"post",
+			url:"修改心愿状态",
+			data:_data,
+			dataType:"json",
+			success:function(data){
+				if(data==1){
+					alert("修改成功~");
+				}else if(data==2){
+					alert("修改失败~");
+				}
+			}
+		});
+	});
+</script>
+<!--/**************************************************************************************************/-->
+<!--发布活动-->
+<!--上传的图片后台要返回一个文件路径，分两步上传-->
+<script type="text/javascript">
+	$("#pub-btn").click(function(){
+		var simpleDes = $("#simpleDes").val();
+		var expectNum = $("#expectNum").val();
+		var expectTime = $("#expectTime").val();
+		var complexDes = $("#wishText").val();
+		var picSrc = path;
+		var time = expectTime.split("-");
+		var date2 = new Date();
+		var a = date2.getFullYear()- parseInt(time[0]);
+		var b = date2.getMonth()+1 - parseInt(time[1]);
+		var c = date2.getDate() - parseInt(time[2]);
+
+		var _data = {
+			"simpleDes":simpleDes,
+			"expectNum":expectNum,
+			"expectTime":expectTime,
+			"complexDes":complexDes,
+			"path":picSrc,
+		};
+		var re = /^[-+]?\d+$/;
+		if(simpleDes==''){
+			alert("请输入微心愿简述~");
+		}else if(expectNum==''){
+			alert("请输入期待完成心愿的人数~");
+		}else if(!re.test(expectNum)){
+			alert("请输入正确格式的数字~");
+		}else if(expectNum<0){
+			alert("请输入正确格式的数字~");
+		}
+		else if(expectTime==''){
+			alert("请输入活动的时间~");
+		}else if(a>0){
+			alert("请输入正确时间哟~");
+		}else if(a=0&&b>0){
+			alert("请输入正确时间哟~");
+		}else if((a=0)&&(b=0)&&(c>0)){
+			alert("请输入正确时间哟~");
+		}else if(complexDes==''){
+			alert("请输入志愿活动的具体描述，以便大家积极参与~");
+		}else if(picSrc==''){
+			alert("请上传志愿活动相关配图~");
+		}
+		$.ajax({
+			type:"post",
+			url:"activityPub",
+			dataType:"json",
+			data:_data,
+			success:function(data){
+				if(data==1){
+					alert("发布成功~");
+				}else if(data=2){
+					alert("发布失败~");
+				}
+			}
+		});
+	});
+</script>
+<!--/*******************************************************************************************/-->
+<!--显示团队信息-->
+<script type="text/javascript">
+	$.ajax({
+		type:"get",
+		url:"teamMess",
+		dataType:"json",
+		success:function(data){
+			data=data[0];
+			$("#userId").text(data.tel);
+			$("#userName").text(data.teamName);
+			$("#username-show").text(data.teamName);
+			$("#useraddress-show").text(data.city);
+			$("#useremail-show").text(data.email);
+		}
+	});
+</script>
+<!--修改团队信息-->
+<script type="text/javascript">
+	$("#save-btn").click(function(){
+		$.ajax({
+			type:"post",
+			url:"teamMessChange",
+			data:{"username":$("#username-show").text()},
+		success:function(data){
+			if(data==1){
+				$("#userName").text($("#username-show").text());
+				alert("修改成功~");
+			}else if(data==2){
+				alert("修改失败~");
+			}
+		}
+	});
+	});
+</script>
+</body>
+</html>

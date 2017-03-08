@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>导航栏</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+		<link href="css/banner.css" rel="stylesheet" type="text/css" />	
+		<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/ >
+		<script src="js/jquery.js"></script>	
+		<script src="js/jquery.datetimepicker.full.js"></script>
+	</head>
+	<body>
+		<div class="header">
+		   <div class="header-left">
+				<div class="logo">
+					<a href="index.html"><img src="img/logo.png" alt=""/></a>
+				</div>
+				<div class="menu">
+					<!--<a class="toggleMenu" href="#"><img src="img/nav.png" alt="" /></a>-->
+				    <ul class="nav" id="nav">
+				    	<li class="active"><a href="index.html" style="color: #e94e38;">主页</a></li>
+				    	<li><a href="wish-wall.html">微心愿平台</a></li>
+				    	<li><a href="#">招募平台</a></li>
+				    	<li><a href="zhongchou.html">我的空间</a></li>
+				    	<li><a href="comment.html">志愿者风采</a></li>
+						<div class="clearfix"></div>
+					</ul>
+			   </div>							
+			   <div class="clearfix"></div>
+		   </div>
+	      <div class="header-right" >
+	 		    <!--搜索框-->
+		        <div class="search-box">
+					<div id="sb-search" class="search">
+						<input class="search-input"  placeholder="请输入搜索内容..." type="search" name="search" id="search" />
+						<input class="search-submit" type="submit" id="search-btn" value="" onclick="toggleSearch()"/>
+					</div>
+				</div>
+				<!--登录按钮-->
+				<div class="login" data-toggle="modal" data-target="#myModal1" id="login-div" style="display: block;">
+					<img src="img/login.png" /> 
+					<span>登录</span>
+				</div>
+				<div class="register" data-toggle="modal" data-target="#myModal2" id="reg-div" style="display: block;">
+					<img src="img/注册.png" /> 
+					<span>注册</span>
+				</div>
+				<div class="login welcome" style="display: none;">
+					<p>欢迎您：<span id="user-mes">Lily</span></p>
+				</div>
+			</div>
+		</div>		
+		<!--点击登录后弹出的框-->
+		<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		      	<div class="btn-panel">
+        			<div class="person-btn personlog-btn header-btn" onclick="personPanelLog()">个人</div>
+        			<div class="team-btn teamlog-btn header-btn" onclick="teamPanelLog()">团队</div>	
+		       		<button type="button" class="close close-btn header-btn" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        </div>
+		      </div>
+		      <div class="modal-body">
+		         <div class="user-panel">
+		        	<div class="panel-container">
+		        		<!--个人登录面板-->
+		        		<div id="personlog-content">
+		        			<div class="input-container">
+		        			<label for="tel">账号</label><input class="modal-input" type="text" id="tel" placeholder="请输入您的登录手机号" />
+		        			</div>
+		        			<div class="input-container">
+		        			<label for="password">密码</label><input class="modal-input" type="password" id="password" placeholder="请输入密码" />
+		        			</div>		        			
+		        			<input type="checkbox" id="login-check" />下次自动登录
+		        			<a>忘记密码</a>
+		        			<div class="login-container input-container" id="person-login" >
+		        				登录
+		        			</div>
+		        		</div><!--个人登录面板-->
+		        		<!--团队登录面板-->
+		        		<div id="teamlog-content" style="display: none;">
+		        			<div class="input-container">
+		        			<label for="tel">团队账号</label><input class="modal-input" type="text" id="team-tel" placeholder="请输入您的登录手机号" />
+		        			</div>
+		        			<div class="input-container">
+		        			<label for="password">团队密码</label><input class="modal-input" type="password" id="team-password" placeholder="请输入密码" />
+		        			</div>		        			
+		        			<input type="checkbox" id="login-check" />下次自动登录
+		        			<a>忘记密码</a>
+		        			<div class="login-container input-container" id="team-login" >
+		        				登录
+		        			</div>
+		        		</div><!--团队登录面板-->
+		        	</div>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!--点击注册后弹出的模态框-->
+		<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		      	<div class="btn-panel">
+        			<div class="person-btn  personreg-btn header-btn" onclick="personPanel()">个人</div>
+        			<div class="team-btn teamreg-btn header-btn" onclick="teamPanel()">团队</div>	        
+		       		<button type="button" class="close close-btn header-btn" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        </div>
+		      </div>
+		      <div class="modal-body">
+		         <div class="user-panel">
+		        	<div class="panel-container">
+		        		<!--个人面板-->
+		        		<div id="person-content">
+		        			<div class="input-container">
+		        				<label for="reg-tel">账号</label><input class="modal-input" type="text" id="reg-tel" placeholder="请使用手机号作为账号" />
+		        			</div>
+		        			<div class="input-container">
+		        				<label for="reg-email">邮箱</label><input class="modal-input" type="text" id="reg-email" placeholder="请使用您的常用邮箱" />
+		        			</div>	
+		        			<div class="input-container">
+		        				<label for="reg-name">昵称</label><input class="modal-input" type="text" id="reg-name" placeholder="请输入您的用户名" />
+		        			</div>	
+		        			<div class="input-container">
+		        				<label for="sex">性别</label>
+		        				<input type="radio" checked="checked" value="男" name="Sex" class="check-sex" /><img src="img/男.png" />
+		        				<input type="radio" class="check-sex" value="女" name="Sex" /><img src="img/女1.png" />
+		        			</div>	
+		        			<div class="input-container">
+		        				<label for="datepicker">生日</label><input type="text" class="modal-input" id="datepicker" />
+		        			</div>	
+		        			<div class="input-container">
+		        				<label for="reg-password">密码</label><input class="modal-input" type="password" id="reg-password" placeholder="请输入密码" />
+		        			</div>	
+		        			<div class="input-container">
+		        				<label for="passwordNext">确认</label><input class="modal-input" type="password" id="passwordNext" placeholder="请再次输入密码" />
+		        			</div>
+		        			<div class="login-container input-container" id="person-reg">
+		        				注册
+		        			</div>
+		        		</div><!--个人面板-->
+		        		<!--团队面板-->
+		        		<div id="team-content" >
+                            <div class="input-container">
+		        				<label for="regt-tel">账号</label><input class="modal-input" type="text" id="regt-tel" placeholder="请使用手机号作为账号" />
+		        			</div>
+		        			<div class="input-container">
+		        				<label for="regt-name">队名</label><input class="modal-input" type="text" id="regt-name" placeholder="所属的团队名称"  />
+		        			</div>
+		        			<div class="input-container">
+		        				<label for="regt-area">地址</label><input class="modal-input" type="text" id="regt-area" placeholder="团队所在地"  />
+		        			</div>
+		        			<div class="input-container">
+		        				<label for="regt-email">邮箱</label><input class="modal-input" type="text" id="regt-email" placeholder="请输入您的常用邮箱"  />
+		        			</div>
+		        			<div class="input-container">
+		        				<label for="regt-pass">密码</label><input class="modal-input" type="password" id="regt-pass" placeholder="请设置密码" />
+		        			</div>
+		        			<div class="input-container">
+		        				<label for="regt-passN">确认</label><input class="modal-input" type="password" id="regt-passN" placeholder="请再次输入密码" />
+		        			</div>
+		        			<div class="login-container input-container" id="team-reg">
+		        				注册
+		        			</div>
+		        		</div><!--团队面板-->
+		        	</div>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>  
+        <script type="text/javascript" src="js/banner.js"></script>
+        <script type="text/javascript">
+		    $('#datepicker').datetimepicker({
+				  lang:"ch",           //语言选择中文
+			      format:"Y-m-d",      //格式化日期
+			      timepicker:false,    //关闭时间选项
+			      yearStart:1950,     //设置最小年份
+			      yearEnd:2050,        //设置最大年份
+			      todayButton:false    //关闭选择今天按钮
+			});
+        </script>
+	</body>
+</html>

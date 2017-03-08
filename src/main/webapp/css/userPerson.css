@@ -1,0 +1,262 @@
+body {
+	background-color: #f1f2f3;
+}
+.clearfix:after{
+      content:"";
+      display:table;
+      clear:both;
+}
+.clearfix{
+      *zoom:1;
+}
+/*上部*/
+.top{
+	width: 87%;
+	height: 250px;
+	margin: 0 auto;
+	margin-top: 15px;
+	background: url(../img/banner.jpg);
+	position: relative;
+}
+/*用户信息展示*/
+.user-mess{
+	color: #fff;
+	text-align: center;
+}
+#user-photo {
+	width: 120px;
+	height: 120px;
+	margin: 0 auto;
+	margin-top: 50px;
+	border: 2px solid #e94e38;
+	border-radius: 50%;
+}
+#user-name{
+	width: 10%;	
+	font-size: 1.1em;	
+	margin: 0 auto;
+	margin-top: 10px;
+}
+.edit {
+	color: #fff;
+	font-size: 0.8em;
+	display: block;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+/*主要内容部分*/
+.tab{
+	width: 87%;
+	height: auto;
+	margin: 0 auto;
+	margin-top: 20px;
+	padding-top: 20px;
+	/*background-color: #eee;*/
+	border-top: 1px solid #eee;
+	/*background-color: #fff;*/
+}
+/*切换按钮*/
+.tab-btn {
+	width: 20%;
+	height: 400px;	
+	float: left;
+	background-color: #fff;
+	/*border-right: 2px solid #E94E38;*/
+}
+.tab-toggle {
+	width: 100%;
+	height: 50px;
+	color: #787d82 !important;
+	text-align: center;
+	font-size: 16px;
+	line-height: 50px;
+	border-bottom: 1px dotted #d0d6d9;
+	cursor: pointer;
+}
+.tab-toggle img {
+	width: 16px;
+	height: 16px;
+	margin-right: 25px;
+}
+
+/*变换内容的面板*/
+.tab-container {
+	width: 80%;
+	float: right;
+	/*background-color: #f1f2f3;*/
+}
+.tab-wrapper {
+	width: 100%;
+	display: none;
+	/*background-color: #fff;*/
+}
+/*领取的心愿*/
+#lingqu-wrapper {
+	width: 100%;
+	height: auto;
+/*　　 background-color: #dddddd;*/
+    display: block;
+    /*background-color: #fff;*/
+}
+/*我发布的心愿的界面*/
+#fabu-wrapper {
+	width: 100%;
+	height: 100px;
+　　 background-color: lightblue;
+}
+
+/*发布心愿界面*/
+#pub-wrapper {
+	width: 95%;
+	height: 800px;
+	background-color: #fff;
+	margin: 0 auto;
+	padding: 30px;
+}
+.pub-header {
+	width: 100%;
+	height: 4%;
+	border-bottom: 1px solid #E0E0E0;
+	margin-bottom: 15px;
+}
+.pub-header h4 {
+	margin-top: 0;	
+}
+.pub-content li {
+	height: 40px;	
+}
+
+.pub-content li label {
+	font-weight: normal;
+	margin-right: 20px;
+	/*color:#96a6a7;*/
+}
+.pub-content p{
+	width: 200px;
+	margin-left: 35px;
+}
+.pub-content input {
+	height: 35px;
+	width: 100px;	
+	border: 1px solid #E0E0E0;
+}
+#simpleDes{
+	width: 400px;
+}
+#wishText {
+	resize: none;
+	width: 650px;
+	height: 150px;
+	margin-left: 40px;
+}
+.zyupload {
+	margin-left: 40px;
+	height: 250px !important;	
+}
+.upload_preview {
+	width: 100%;
+	position: relative;
+	/*left: -100px;*/
+}
+#pub-btn{
+	width: 100px;
+	height: 40px;
+	background-color: #E94E38;
+	color: #fff;
+	text-align:center;
+	line-height: 2.5em;
+	margin-left: 300px;
+	cursor: pointer;
+}
+/*我参与的志愿活动*/
+#volunteer-wrapper {
+	width: 100%;
+	height: 100px;
+　　 background-color: lightcyan;
+}
+.act-publisher{
+	width: 150px;
+	display: inline-block;
+	color: #E94E38;
+}
+.act-publisher a{
+	color: #333;
+}
+.act-deadline{
+	width: 200px;
+	display: inline-block;
+	/*margin-left: 100px;*/
+	color: #E94E38;
+}
+#edit-wrapper {
+	width: 90%;
+	height: 500px;
+	margin: 0 auto;
+　　 background-color: #fff;
+}
+.edit-basic{
+	width:100%;
+	height:100%;
+	padding: 30px;
+}
+.edit-basic h4{
+	width: 100%;
+	margin-top: 0;
+	margin-bottom: 20px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #E1E1E1;
+}
+.formgroup {
+	width: 100%;
+	height: 50px;
+	/*margin-bottom: 10px;*/
+	margin-left: 20px;
+}
+.formgroup label {
+	/*width: 100px;*/
+	margin-right: 10px !important;
+}
+.userMessage-show {
+	display: inline-block;
+}
+.userChange-btn{
+	cursor: pointer;
+}
+.userChange-btn a{
+	color:#5bc0de;
+}
+#username-form {
+	display: inline-block;
+}
+.userEdit-btn{
+	display: inline-block;
+	cursor: pointer;
+	border: 1px solid #E2DEE0;
+	width: 50px;
+	height: 27px;
+	text-align: center;
+	line-height: 1.7em;
+}
+.save-btn{
+	width:150px;
+	height:40px;
+	text-align: center;
+	line-height: 2.5em;
+	background-color: #E94E38;
+	color: #FFF;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+.savestatus-btn{
+	width: 100px;
+	height: 35px;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 35px;
+	color: #fff;
+	background-color: #E94E38;
+}
+.file_success,.file_progress{
+	width: 140px !important;
+	margin-left: 0 !important;
+}

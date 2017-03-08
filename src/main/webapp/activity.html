@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>活动招募</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+		<link href="css/banner.css" rel="stylesheet" type="text/css" />	
+		<link href="css/reset.css" rel="stylesheet" type="text/css" />	
+			
+		<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/ >
+		<script src="js/jquery.js"></script>	
+		<script src="js/jquery.datetimepicker.full.js"></script>
+		<!--<link rel="stylesheet" href="css/main.css" />-->
+		<!--分页-->
+		<script src="js/extendPage.js" type="text/javascript"></script>
+		<!--滑动图画-->
+		<link rel="stylesheet" href="css/show.css"/>
+        <link rel="stylesheet" href="css/slider.css"/>
+        <script src="js/jquery-ui-1.8.6.core.widget.js"></script>
+		<script src="js/jqueryui.bannerize.js"></script>
+		<link href="css/activity.css" rel="stylesheet" type="text/css" />
+		
+		
+		<script type="text/javascript">
+		    $(document).ready(function(){
+		        $('#banners').bannerize({
+		            shuffle: 1,
+		            interval: "5"
+		        });
+		        $(".ui-line").hover(function(){
+		            $(this).addClass("ui-line-hover");
+		            $(this).find(".ui-bnnerp").addClass("ui-bnnerp-hover");
+		        },function(){
+		            $(this).removeClass("ui-line-hover");
+		            $(this).find(".ui-bnnerp").removeClass("ui-bnnerp-hover");
+		        });
+		    });
+		</script>
+		
+	</head>
+	<body>
+		<div class="header">
+		   <div class="header-left">
+				<div class="logo">
+					<a href="index.html"><img src="img/logo.png" alt=""/></a>
+				</div>
+				<div class="menu">
+					<!--<a class="toggleMenu" href="#"><img src="img/nav.png" alt="" /></a>-->
+				    <ul class="nav" id="nav">
+				    	<li class="active"><a href="index.html">主页</a></li>
+				    	<li><a href="wishWall.html">微心愿平台</a></li>
+				    	<li><a href="activity.html" style="color: #e94e38;">招募平台</a></li>
+				    	<li><a href="userPerson.html">我的空间</a></li>
+				    	<li><a href="#">志愿者风采</a></li>
+						<div class="clearfix"></div>
+					</ul>
+			   </div>							
+			   <div class="clearfix"></div>
+		   </div>
+	      <div class="header-right">
+	 		    <!--搜索框-->
+		        <div class="search-box">
+					<div id="sb-search" class="search">
+						<input class="search-input"  placeholder="请输入搜索内容..." type="search" name="search" id="search" />
+						<input class="search-submit" type="submit" id="search-btn" value="" onclick="toggleSearch()"/>
+					</div>
+				</div>
+				<!--登录按钮-->
+				<div class="login" data-toggle="modal" data-target="#myModal1">
+					<img src="img/login.png" /> 
+					<span>登录</span>
+				</div>
+				<div class="register" data-toggle="modal" data-target="#myModal2">
+					<img src="img/注册.png" /> 
+					<span>注册</span>
+				</div>
+			</div>
+		</div>		
+		<!--点击登录后弹出的框-->
+		<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		      	<div class="btn-panel">
+        			<div class="person-btn personlog-btn header-btn" onclick="personPanelLog()">个人</div>
+        			<div class="team-btn teamlog-btn header-btn" onclick="teamPanelLog()">团队</div>	
+		       		<button type="button" class="close close-btn header-btn" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        </div>
+		      </div>
+		      <div class="modal-body">
+		         <div class="user-panel">
+		        	<div class="panel-container">
+		        		<!--个人登录面板-->
+		        		<div id="personlog-content">
+		        			<div class="input-container">
+		        			<label for="tel">账号</label><input class="modal-input" type="text" id="tel" placeholder="请输入您的登录手机号" />
+		        			</div>
+		        			<div class="input-container">
+		        			<label for="password">密码</label><input class="modal-input" type="password" id="password" placeholder="请输入密码" />
+		        			</div>		        			
+		        			<input type="checkbox" id="login-check" />下次自动登录
+		        			<a>忘记密码</a>
+		        			<div class="login-container input-container" id="person-login" onClick='personLog()'>
+		        				登录
+		        			</div>
+		        		</div><!--个人登录面板-->
+		        		<!--团队登录面板-->
+		        		<div id="teamlog-content" style="display: none;">
+		        			<div class="input-container">
+		        			<label for="tel">团队账号</label><input class="modal-input" type="text" id="team-tel" placeholder="请输入您的登录手机号" />
+		        			</div>
+		        			<div class="input-container">
+		        			<label for="password">团队密码</label><input class="modal-input" type="password" id="team-password" placeholder="请输入密码" />
+		        			</div>		        			
+		        			<input type="checkbox" id="login-check" />下次自动登录
+		        			<a>忘记密码</a>
+		        			<div class="login-container input-container" id="team-login" onClick='teamLog()'>
+		        				登录
+		        			</div>
+		        		</div><!--团队登录面板-->
+		        	</div>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!--点击注册后弹出的模态框-->
+		<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		      	<div class="btn-panel">
+        			<div class="person-btn  personreg-btn header-btn" onclick="personPanel()">个人</div>
+        			<div class="team-btn teamreg-btn header-btn" onclick="teamPanel()">团队</div>	        
+		       		<button type="button" class="close close-btn header-btn" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        </div>
+		      </div>
+		      <div class="modal-body">
+		         <div class="user-panel">
+		        	<div class="panel-container">
+		        		<!--个人面板-->
+		        		<div id="person-content">
+		        			<div class="input-container">
+		        				<label for="reg-tel">账号</label><input class="modal-input" type="text" id="reg-tel" placeholder="请使用手机号作为账号" />
+		        			</div>
+		        			<div class="input-container">
+		        				<label for="reg-email">邮箱</label><input class="modal-input" type="text" id="reg-email" placeholder="请使用您的常用邮箱" />
+		        			</div>	
+		        			<div class="input-container">
+		        				<label for="reg-name">昵称</label><input class="modal-input" type="text" id="reg-name" placeholder="请输入您的用户名" />
+		        			</div>	
+		        			<div class="input-container">
+		        				<label for="sex">性别</label>
+		        				<input type="radio" checked="checked" value="男" name="Sex" class="check-sex" /><img src="img/男.png" />
+		        				<input type="radio" class="check-sex" value="女" name="Sex" /><img src="img/女1.png" />
+		        			</div>	
+		        			<div class="input-container">
+		        				<label for="datepicker">生日</label><input type="text" class="modal-input" id="datepicker" />
+		        			</div>	
+		        			<div class="input-container">
+		        				<label for="reg-password">密码</label><input class="modal-input" type="password" id="reg-password" placeholder="请输入密码" />
+		        			</div>	
+		        			<div class="input-container">
+		        				<label for="passwordNext">确认</label><input class="modal-input" type="password" id="passwordNext" placeholder="请再次输入密码" />
+		        			</div>
+		        			<div class="login-container input-container" id="person-reg" onClick="personReg()">
+		        				注册
+		        			</div>
+		        		</div><!--个人面板-->
+		        		<!--团队面板-->
+		        		<div id="team-content" >
+                            <div class="input-container">
+		        				<label for="regt-tel">账号</label><input class="modal-input" type="text" id="regt-tel" placeholder="请使用手机号作为账号" />
+		        			</div>
+		        			<div class="input-container">
+		        				<label for="regt-name">队名</label><input class="modal-input" type="text" id="regt-name" placeholder="所属的团队名称"  />
+		        			</div>
+		        			<div class="input-container">
+		        				<label for="regt-area">地址</label><input class="modal-input" type="text" id="regt-area" placeholder="团队所在地"  />
+		        			</div>
+		        			<div class="input-container">
+		        				<label for="regt-email">邮箱</label><input class="modal-input" type="text" id="regt-email" placeholder="请输入您的常用邮箱"  />
+		        			</div>
+		        			<div class="input-container">
+		        				<label for="regt-pass">密码</label><input class="modal-input" type="password" id="regt-pass" placeholder="请设置密码" />
+		        			</div>
+		        			<div class="input-container">
+		        				<label for="regt-passN">确认</label><input class="modal-input" type="password" id="regt-passN" placeholder="请再次输入密码" />
+		        			</div>
+		        			<div class="login-container input-container" id="team-reg" onClick="teamReg()">
+		        				注册
+		        			</div>
+		        		</div><!--团队面板-->
+		        	</div>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>   
+		
+		<!--主要内容-->
+		<div class="wrapper">
+			<!--上部展示活动部分-->
+			<div class="banner-pic">
+				<img src="img/activity.jpeg" />
+			<div class="index-new w1200 mt30">
+               <div class="indexadd mt50 mb60">
+                   <div id="banners" class="ui-banner">
+                       <ul class="ui-banner-slides">
+                           <li><a href=""><img src="img/e3.jpg" alt="NEW! Get Heart Smart With Essential Omega III" title="NEW! Get Heart Smart With Essential Omega III"/></a></li>
+                           <li><a href=""><img src="img/e4.jpg" alt="NEW! Support Your Skin on a Cellular Level" title="NEW! Support Your Skin on a Cellular Level"/></a></li>
+                           <li><a href=""><img src="img/pic12.jpg" alt="NEW! Indulge in Luxury With Royal Spa" title="NEW! Indulge in Luxury With Royal Spa"/></a></li>
+                           <li><a href=""><img src="img/pic11.jpg" alt="NEW! Get paid to shop with Cashback" title="NEW! Get paid to shop with Cashback"/></a></li>
+                       </ul><!--ui-banner-slides end-->
+                       <ul class="ui-banner-slogans">
+                           <li class="ui-line">
+                               <div class="ullinehover">
+                                   <div class="ui-bnnerimg floatLeft">
+                                       <img src="img/e3.jpg" alt="" width="103"/>
+                                   </div>
+                                   <div class="ui-bnnerp floatRight">
+                                       <h3 style="margin-top: 8px;">设计院开展扶贫济困募捐活动</h3>
+                                       <p>根据总局文明委《关于开展扶贫济困募捐活动的通知》精神，在总局机关和直属单位
+                                           开展扶贫济困募捐活动。
+                                       </p>
+                                   </div>
+                               </div>
+                           </li>
+                           <li class="ui-line">
+                               <div class="ullinehover">
+                                   <div class="ui-bnnerimg floatLeft">
+                                       <img src="img/e4.jpg" alt="" width="103"/>
+                                   </div>
+                                   <div class="ui-bnnerp floatRight">
+                                       <h3 style="margin-top: 8px;">设计院开展扶贫济困募捐活动</h3>
+                                       <p>根据总局文明委《关于开展扶贫济困募捐活动的通知》精神，在总局机关和直属单位
+                                           开展扶贫济困募捐活动。
+                                       </p>
+                                   </div>
+                               </div>
+                           </li>
+                           <li class="ui-line">
+                               <div class="ullinehover">
+                                   <div class="ui-bnnerimg floatLeft">
+                                       <img src="img/pic12.jpg" alt="" width="103"/>
+                                   </div>
+                                   <div class="ui-bnnerp floatRight">
+                                       <h3 style="margin-top: 8px;">设计院开展扶贫济困募捐活动</h3>
+                                       <p>根据总局文明委《关于开展扶贫济困募捐活动的通知》精神，在总局机关和直属单位
+                                           开展扶贫济困募捐活动。
+                                       </p>
+                                   </div>
+                               </div>
+                           </li>
+                           <li class="ui-line">
+                               <div class="ullinehover">
+                                   <div class="ui-bnnerimg floatLeft">
+                                       <img src="img/pic11.jpg" alt="" width="103"/>
+                                   </div>
+                                   <div class="ui-bnnerp floatRight">
+                                       <h3 style="margin-top: 8px;">设计院开展扶贫济困募捐活动</h3>
+                                       <p>根据总局文明委《关于开展扶贫济困募捐活动的通知》精神，在总局机关和直属单位
+                                           开展扶贫济困募捐活动。
+                                       </p>
+                                   </div>
+                               </div>
+                           </li>
+                       </ul><!--ui-banner-slogans end-->
+                   </div>
+               </div>
+           </div>
+		 </div>
+		 
+		 <!--具体展示招募活动部分-->
+		 <div class="show-header">
+		 	<div class="noisy">
+			 	<img src="img/活动.png" />
+			 	<h2>更多活动</h2>
+		 	</div>
+		 	<div class="line"></div>
+		 </div>
+		 <div class="activityShow">
+			 <div class="activityshowWrapper">
+		 	<div class="activities">
+		 		<div class="up-act">
+		 			<img src="img/wishwall1.jpg" />
+		 		</div>
+		 		<div class="down-act">
+		 			<h5>活动标题活动标题活动标题活动标</h5>
+		 			<p>活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述活动的具
+		 			体描述活动的具体描述活动的具体描述活动的具体描述活动的具体描述</p>
+		 			<p class="act-publisher">发布者：<a>山大汪</a></p>
+                    <div class="more-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#actModal">了解更多</div>
+		 		</div>
+		 	</div>
+		 	<div class="activities">
+		 	</div>
+		 	<div class="activities">
+		 	</div>
+		 	<div class="activities">
+		 	</div>
+		 	<div class="activities">
+		 	</div>
+		 	<div class="activities">
+		 	</div>
+		 	<div class="clearfix">
+		 	</div>
+			 </div>
+		 	<div class="page-ctrl">
+		 	</div>
+		 </div>
+	 
+		</div>
+		 <!--点击了解更多之后弹出的模态框-->
+		 <div class="modal fade" id="actModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content act-modal-content">
+		      <div class="modal-header act-header">
+		        <button type="button" class="close act-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel"><img src="img/活动2.png" style="margin-right:15px;width: 25px;height: 25px;">活动详情</h4>
+		      </div>
+		      <div class="modal-body act-body">
+		            <h4 id="activityDes">奥体中心招募志愿者</h4>
+		         	<ul class="act">
+		         		<li class="actMess"><span>发布者：</span><span id="publisher">喵喵喵</span></li>
+		         		<li class="actMess"><span>期望人数：</span><span id="pubAge">35</span></li>		         		
+		         		<li class="actMess"><span>截止时间：</span><span id="deadline">2016-04-01</span></li>	
+		         		<div class="clearfix"></div>
+		         	</ul>		         
+		         	<img id="activityPic" src="img/pic5.jpg"/>		       	         
+		         	<p class="wish-text" id="complexAct">
+		         		济南市奥体中心招募志愿者，提供专车接送，免费晚餐，快来报名啊济南市奥体中心招募志愿者，提供专车接送，免费晚餐，快来报名啊济南市奥体中心招募志愿者，提供专车接送，免费晚餐，快来报名啊
+		         		济南市奥体中心招募志愿者，提供专车接送，免费晚餐，快来报名啊济南市奥体中心招募志愿者，提供专车接送，免费晚餐，快来报名啊济南市奥体中心招募志愿者，提供专车接送，免费晚餐，快来报名啊
+		         		济南市奥体中心招募志愿者，提供专车接送，免费晚餐，快来报名啊济南市奥体中心招募志愿者，提供专车接送，免费晚餐，快来报名啊济南市奥体中心招募志愿者，提供专车接送，免费晚餐，快来报名啊
+		         	</p>
+		         	<p class="person-num">已报名人数：<span id="bmCount">26</span></p>
+				  <input type="text" id="baomingrenshu" placeholder="团队报名请输入人数" />
+				  <div class="baoming-btn" id="id">我要报名</div>
+		       </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+        <script type="text/javascript" src="js/banner.js"></script>
+        <script type="text/javascript">
+		    $('#datepicker').datetimepicker({
+				  lang:"ch",           //语言选择中文
+			      format:"Y-m-d",      //格式化日期
+			      timepicker:false,    //关闭时间选项
+			      yearStart:1950,     //设置最小年份
+			      yearEnd:2050,        //设置最大年份
+			      todayButton:false    //关闭选择今天按钮
+			});
+        </script>
+        
+        <!--获取活动总条数以便生成分页按钮-->
+        <script type="text/javascript">
+			var pubactTotal;//总条数
+
+        	$.ajax({
+        		url:"activityCount",
+        		type:"post",
+        		dataType:"json",
+        		success:function(data){
+					pubactTotal=data;
+//					$('.activityShow').append('<div class="page-ctrl"></div>');
+					$('.page-ctrl').extendPagination({
+			            totalCount: pubactTotal,
+			            showCount: 10,
+			            limit: 1
+					});
+					createActivities(1,pubactTotal,1);
+				}
+        	});
+			</script>
+		<script type="text/javascript">
+			function createActivities(id,all,limit){
+        	$.ajax({
+        		type:"get",
+        		url:"activityShow",
+				data:{
+					"id":id,
+					"all":all,
+					"limit":limit
+				},
+        		dataType:"json",
+        		success:function(data){
+        			createActivity(data);
+        		}
+        	});
+        }
+        
+        function createActivity(data){
+			var $show=$(".activityshowWrapper");
+        	$show.empty();
+        	var len = data.length;
+        	for(var i=0;i<len;i++){       		
+        		var newactivity = '<div class="activities"><div class="up-act"><img src="'
+        						  +data[i].activitypic+'" /></div><div class="down-act"><h5>'
+        						  +data[i].simpleDes+'</h5><p class="complexDes">'
+        						  +data[i].complexDes+'</p><p class="act-publisher">发布者：<a>'
+        						  +data[i].publisher+'</a></p><div class="more-btn" onclick="showMoreActivity('+data[i].activityId+')" class="more-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#actModal" id="'
+        						  +data[i].activityId+'">了解更多</div></div></div>';
+        	    $show.append(newactivity);
+				if(i == len-1){
+					$show.append('<div class="clearfix"></div>');
+				}
+        	}  	  			  
+        }	
+        </script>
+        	         	
+        <!--活动的点击查看详情-->
+		<script type="text/javascript">
+			function showMoreActivity(id) {
+				var activityId = id;
+				var _data = {"activityId": activityId};
+				$.ajax({
+					url: "activityMore",
+					type: "get",
+					data: _data,
+					dataType: "json",
+					success: function (data) {
+						data = data[0];
+						$("#activityDes").text(data.simpleDes);
+						$("#publisher").text(data.publisher);
+						$("#pubAge").text(data.expectNum);
+						$("#deadline").text(data.deadLine);
+						$("#activityPic").attr("src", data.activitypic);
+						$("#complexAct").text(data.complexDes);
+						$("#bmCount").text(data.status);
+						$(".baoming-btn").attr('id', data.activityId);
+					}
+				})
+			}
+			;
+
+			$(".baoming-btn").click(function () {
+				var id = $(this).attr("id");
+				var baomingrenshu = $("#baomingrenshu").val();
+				var _data = {"activityId": id, "baomingrenshu": baomingrenshu};
+				$.ajax({
+					type: "post",
+					data: _data,
+					url: "activityDraw",
+					dataType: "json",
+					success: function (data) {
+						if(data.length==0){
+							alert("这个招募已经招募满了，请选择其他的招募活动")
+						}else
+						if (data == -1) {
+							alert("请不要重复领取。")
+						} else {
+							data = data[0];
+							alert("请及时与活动发布团队联系~\n手机号：" + data.tel + "\n邮箱：" + data.email + "\n");
+						}
+					}
+				});
+			});
+		</script>
+
+	</body>
+</html>
+
